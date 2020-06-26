@@ -110,15 +110,5 @@ GPATH
 GRTAGS
 GTAGS
 
-# Me
-raw/
-mlruns/
-mutagen.yml.lock
-## Me (development)
-ica_torch
-independence_torch
-inn_torch
-mexlet
-
 **/.RData
 **/.Rhistory

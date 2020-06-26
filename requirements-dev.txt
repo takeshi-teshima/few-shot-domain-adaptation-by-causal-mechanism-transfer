@@ -1,0 +1,6 @@
+# Documentation
+sphinx
+sphinx_rtd_theme
+
+# Debug
+pudb

@@ -1,0 +1,21 @@
+ipython
+
+## Evaluation
+packaging
+
+## Visualization
+matplotlib
+seaborn
+
+## Recording
+joblib
+dill
+mlflow
+
+#### Sacred
+sacred
+pymongo
+
+## Results
+pandas_ply
+incense
