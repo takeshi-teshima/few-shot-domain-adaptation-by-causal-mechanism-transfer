@@ -1,0 +1,12 @@
+\begin{tabular}[t]{|*1{p{8mm}|}|*1{p{8mm}}||*4{p{10mm}|}*1{p{10mm}|}*5{p{10mm}|}}
+\hline
+
+\hhline{|=||=||=|=|=|=|=|=|=|=|=|=|}
+\BLOCK{ for name, x in rows.iterrows() }
+{{tex_escape(abbrev(name))}} & {{x['LOO']}} & {{x['TargetOnly']}} & {{x['causal-da']}} & {{x['SourceOnly']}} & {{x['SourceAndTargetTargetValidate']}} & {{x['tr-adaboost']}} & {{x['gdm']}} & {{x['copula']}} & {{x['iw-base(alpha=0.0)']}} & {{x['iw-base(alpha=0.5)']}} & {{x['iw-base(alpha=0.95)']}}\\
+\hline
+\BLOCK{ endfor }
+\hhline{|=||=||=|=|=|=|=|=|=|=|=|=|}
+\#Best & - & {{count_best['TargetOnly']}} & {{count_best['causal-da']}} & {{count_best['SourceOnly']}} & {{count_best['SourceAndTargetTargetValidate']}} & {{count_best['tr-adaboost']}} & {{count_best['gdm']}} & {{count_best['copula']}} & {{count_best['iw-base(alpha=0.0)']}} & {{count_best['iw-base(alpha=0.5)']}} & {{count_best['iw-base(alpha=0.95)']}}\\
+\hline
+\end{tabular}
