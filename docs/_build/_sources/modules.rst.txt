@@ -1,5 +1,3 @@
-:orphan:
-
 few-shot-domain-adaptation-by-causal-mechanism-transfer
 =======================================================
 

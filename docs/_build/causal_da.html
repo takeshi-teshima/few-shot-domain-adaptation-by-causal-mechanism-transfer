@@ -39,6 +39,7 @@
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -96,10 +97,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">causal_da package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-causal_da.api">causal_da.api module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-causal_da.ICML2020_api">causal_da.ICML2020_api module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-causal_da">Module contents</a></li>
 </ul>
 </li>
@@ -181,14 +185,195 @@
 <li class="toctree-l2"><a class="reference internal" href="causal_da.algorithm.html#module-causal_da.algorithm">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.logging.html">causal_da.api_support.logging package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.base">causal_da.api_support.logging.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.mlflow">causal_da.api_support.logging.mlflow module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.model_logger">causal_da.api_support.logging.model_logger module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.mongo_sacred">causal_da.api_support.logging.mongo_sacred module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.param_history_manager">causal_da.api_support.logging.param_history_manager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.sacred">causal_da.api_support.logging.sacred module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.validator.html">causal_da.api_support.validator package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.base">causal_da.api_support.validator.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.performance">causal_da.api_support.validator.performance module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.scores">causal_da.api_support.validator.scores module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.timer">causal_da.api_support.validator.timer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.util">causal_da.api_support.validator.util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.evaluator">causal_da.api_support.evaluator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.evaluator_runner">causal_da.api_support.evaluator_runner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.index_class_label">causal_da.api_support.index_class_label module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.components.html">causal_da.components package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.components.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.aug_predictor.html">causal_da.components.aug_predictor package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.aug_gpr">causal_da.components.aug_predictor.aug_gpr module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.aug_krr">causal_da.components.aug_predictor.aug_krr module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.base">causal_da.components.aug_predictor.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.krr_params">causal_da.components.aug_predictor.krr_params module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.partial_loo_krr">causal_da.components.aug_predictor.partial_loo_krr module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.util">causal_da.components.aug_predictor.util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.ica_torch.html">causal_da.components.ica_torch package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.GCL_nonlinear_ica_train">causal_da.components.ica_torch.GCL_nonlinear_ica_train module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.api">causal_da.components.ica_torch.api module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.gcl_model">causal_da.components.ica_torch.gcl_model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.logging_util">causal_da.components.ica_torch.logging_util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.trainer_util">causal_da.components.ica_torch.trainer_util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.inn_torch.html">causal_da.components.inn_torch package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="causal_da.components.inn_torch.layers.html">causal_da.components.inn_torch.layers package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.layers.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.layers.html#module-causal_da.components.inn_torch.layers.actnorm">causal_da.components.inn_torch.layers.actnorm module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.layers.html#module-causal_da.components.inn_torch.layers.affine_coupling_layer">causal_da.components.inn_torch.layers.affine_coupling_layer module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.layers.html#module-causal_da.components.inn_torch.layers.invertible_PLU">causal_da.components.inn_torch.layers.invertible_PLU module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.layers.html#module-causal_da.components.inn_torch.layers.invertible_linear">causal_da.components.inn_torch.layers.invertible_linear module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.layers.html#module-causal_da.components.inn_torch.layers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="causal_da.components.inn_torch.wrappers.html">causal_da.components.inn_torch.wrappers package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.wrappers.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.wrappers.html#module-causal_da.components.inn_torch.wrappers.sequential_flow">causal_da.components.inn_torch.wrappers.sequential_flow module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.components.inn_torch.wrappers.html#module-causal_da.components.inn_torch.wrappers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.html#module-causal_da.components.inn_torch.glow_nonexponential">causal_da.components.inn_torch.glow_nonexponential module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.html#module-causal_da.components.inn_torch">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.components.html#module-causal_da.components">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.evaluators_support.html">causal_da.contrib.evaluators_support package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html">causal_da.contrib.evaluators_support.metrics package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#module-causal_da.contrib.evaluators_support.metrics.emd">causal_da.contrib.evaluators_support.metrics.emd module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#module-causal_da.contrib.evaluators_support.metrics.fractional_absolute_error">causal_da.contrib.evaluators_support.metrics.fractional_absolute_error module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#module-causal_da.contrib.evaluators_support.metrics.mean_absolute_relative_error">causal_da.contrib.evaluators_support.metrics.mean_absolute_relative_error module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#module-causal_da.contrib.evaluators_support.metrics.mmd">causal_da.contrib.evaluators_support.metrics.mmd module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#module-causal_da.contrib.evaluators_support.metrics.mmd_two_sample_test">causal_da.contrib.evaluators_support.metrics.mmd_two_sample_test module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="causal_da.contrib.evaluators_support.metrics.html#module-causal_da.contrib.evaluators_support.metrics">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_emd_assessment">causal_da.contrib.evaluators_support.aug_emd_assessment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_gpr_assessment">causal_da.contrib.evaluators_support.aug_gpr_assessment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_info_assessment">causal_da.contrib.evaluators_support.aug_info_assessment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_krr_assessment">causal_da.contrib.evaluators_support.aug_krr_assessment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.base">causal_da.contrib.evaluators_support.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.util">causal_da.contrib.evaluators_support.util module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.html#module-causal_da.contrib.evaluators">causal_da.contrib.evaluators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.html#module-causal_da.contrib">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-causal_da.api">
-<span id="causal-da-api-module"></span><h2>causal_da.api module<a class="headerlink" href="#module-causal_da.api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-causal_da.ICML2020_api">
+<span id="causal-da-icml2020-api-module"></span><h2>causal_da.ICML2020_api module<a class="headerlink" href="#module-causal_da.ICML2020_api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="causal_da.ICML2020_api.CausalMechanismTransferICML2020API">
+<em class="property">class </em><code class="descclassname">causal_da.ICML2020_api.</code><code class="descname">CausalMechanismTransferICML2020API</code><span class="sig-paren">(</span><em>parallel_split_index: int</em>, <em>total_parallel_split: int</em>, <em>run_logger: Optional[causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger] = None</em>, <em>param_history_manager: Optional[causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.ICML2020_api.CausalMechanismTransferICML2020API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The main interface class for the experiments. Based on the following combination of components:</p>
+<ul class="simple">
+<li>Hyper-paramter search: grid-search.<ul>
+<li>HP selection is assumed to be performed by recording the validation scores for all runs in MongoDB and comparing the scores later.</li>
+</ul>
+</li>
+<li>Experiment recording: Sacred + MongoDB.</li>
+<li>Model recording: MLFlow.</li>
+<li>ICA<ul>
+<li>training: GCL (out-of-the-box).</li>
+<li>Invertible neural network: Glow-based (without exponential activation).</li>
+</ul>
+</li>
+<li>Predictor<ul>
+<li>Kernel ridge regression (RBF kernel)</li>
+</ul>
+</li>
+</ul>
+<p>Construct the method object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parallel_split_index</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – We use brute-force parallelization such that we split the set of
+all hyperparameter configurations into <code class="docutils literal notranslate"><span class="pre">total_parallel_split</span></code> chunks.</li>
+<li><strong>total_parallel_split</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – The total number of hyper-parameter splits for parallelization. See also <code class="docutils literal notranslate"><span class="pre">parallel_split_index</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="causal_da.ICML2020_api.CausalMechanismTransferICML2020API.run_method_and_eval">
+<code class="descname">run_method_and_eval</code><span class="sig-paren">(</span><em>X_src_train</em>, <em>Y_src_train</em>, <em>c_src_train</em>, <em>cfg_method</em>, <em>save_model_path</em>, <em>ica_intermediate_evaluators</em>, <em>augmenter_evaluators</em>, <em>run_kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.ICML2020_api.CausalMechanismTransferICML2020API.run_method_and_eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main interface.
+Runs through all the hyper-paramter candidates except those for which we have a previous run record.
+Designed for training, probing the performance, and saving the results in a database that is connected to Sacred run database (via sacred’s <code class="docutils literal notranslate"><span class="pre">run_id</span></code>), for all hyper-parameter combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>X_src_train</strong> – </li>
+<li><strong>Y_src_train</strong> – </li>
+<li><strong>c_src_train</strong> – </li>
+<li><strong>cfg_method</strong> – </li>
+<li><strong>save_model_path</strong> – </li>
+<li><strong>ica_intermediate_evaluators</strong> – </li>
+<li><strong>augmenter_evaluators</strong> – </li>
+<li><strong>run_kwargs</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-causal_da">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-causal_da" title="Permalink to this headline">¶</a></h2>

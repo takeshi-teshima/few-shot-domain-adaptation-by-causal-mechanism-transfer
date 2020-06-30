@@ -39,12 +39,14 @@
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.api_support package" href="causal_da.api_support.html" />
     <link rel="prev" title="causal_da package" href="causal_da.html" /> 
 </head>
 
@@ -101,10 +103,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-causal_da.algorithm">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib package</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="causal_da.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="causal_da.html#module-causal_da.api">causal_da.api module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="causal_da.html#module-causal_da">Module contents</a></li>
 </ul>
 </li>
@@ -184,17 +189,20 @@
 <span id="causal-da-algorithm-api-module"></span><h2>causal_da.algorithm.api module<a class="headerlink" href="#module-causal_da.algorithm.api" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="causal_da.algorithm.api.CausalMechanismTransfer">
-<em class="property">class </em><code class="descclassname">causal_da.algorithm.api.</code><code class="descname">CausalMechanismTransfer</code><span class="sig-paren">(</span><em>invertible_ica_model</em>, <em>predictor_model</em>, <em>augmentation_size=None</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.algorithm.api.CausalMechanismTransfer" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">causal_da.algorithm.api.</code><code class="descname">CausalMechanismTransfer</code><span class="sig-paren">(</span><em>invertible_ica_model</em>, <em>predictor_model</em>, <em>aug_max_iter: Optional[int] = None</em>, <em>augmentation_size: Optional[int] = None</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.algorithm.api.CausalMechanismTransfer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Implementation of Causal Mechanism Transfer.</p>
+<p>Implementation of Causal Mechanism Transfer.
+Takes a trainable nonlinear ICA method object and perform transfer learning.</p>
 <p>Build CausalMechanismTransfer object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>invertible_ica_model</strong> (<em>object</em>) – Trainable invertible ICA model for estimating the mechanism function. Required to implement <code class="docutils literal notranslate"><span class="pre">train()</span></code> and <code class="docutils literal notranslate"><span class="pre">inv()</span></code>.</li>
-<li><strong>predictor_model</strong> (<em>object</em>) – Trainable predictor model to be trained on the augmented data. Needs to implement <code class="docutils literal notranslate"><span class="pre">fit()</span></code>.</li>
+<li><strong>invertible_ica_model</strong> (<em>object</em>) – Trainable invertible ICA model for estimating the mechanism function.
+Required to implement <code class="docutils literal notranslate"><span class="pre">train()</span></code> and <code class="docutils literal notranslate"><span class="pre">inv()</span></code>.</li>
+<li><strong>predictor_model</strong> (<em>object</em>) – Trainable predictor model to be trained on the augmented data. Needs to implement <code class="docutils literal notranslate"><span class="pre">fit()</span></code> and <code class="docutils literal notranslate"><span class="pre">predict()</span></code>.</li>
+<li><strong>aug_max_iter</strong> (<em>int</em><em> or </em><em>None</em>) – The maximum number of iterations for performing the augmentation.</li>
 <li><strong>augmentation_size</strong> (<em>int</em><em> or </em><em>None</em>) – The size of the augmentation. Fully augmented if <code class="docutils literal notranslate"><span class="pre">None</span></code>.</li>
 </ul>
 </td>
@@ -210,11 +218,24 @@
 <dl class="method">
 <dt id="causal_da.algorithm.api.CausalMechanismTransfer.train">
 <code class="descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.algorithm.api.CausalMechanismTransfer.train" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="causal_da.algorithm.api.CausalMechanismTransfer.train_and_record">
+<code class="descname">train_and_record</code><span class="sig-paren">(</span><em>src_data</em>, <em>ica_data</em>, <em>ica_loggers</em>, <em>ica_intermediate_evaluators</em>, <em>augmenter_evaluators: Iterable[causal_da.algorithm.api_support.evaluators.AugmenterEvaluator] = []</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.algorithm.api.CausalMechanismTransfer.train_and_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>A version of <code class="docutils literal notranslate"><span class="pre">train()</span></code> that also records the intermediate information.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>TODO</strong> – </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>src_data</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) – The source domain data to be used for fitting the novelty detector.</li>
+<li><strong>ica_data</strong> (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>) – Contains the source domain data passed to the ICA method.</li>
+<li><strong>train_params</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – <p>Keys:</p>
+<p><code class="docutils literal notranslate"><span class="pre">device</span></code> : The device specification (e.g., <code class="docutils literal notranslate"><span class="pre">'gpu'</span></code>) for training in PyTorch.</p>
+</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -266,9 +287,17 @@
 <dl class="method">
 <dt id="causal_da.algorithm.ica_augmenter.ICAAugmenter.is_valid_generated_data">
 <code class="descname">is_valid_generated_data</code><span class="sig-paren">(</span><em>xbar</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.algorithm.ica_augmenter.ICAAugmenter.is_valid_generated_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return if data is (inside_train_data_support) and (not np.inf) and (not np.nan)
-:returns: 1 if inside support, -1 otherwise
-:rtype: <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code></p>
+<dd><p>Return if data is (inside_train_data_support) and (not np.inf) and (not np.nan)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>``np.ndarray``</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1</span></code> if inside support, <code class="docutils literal notranslate"><span class="pre">-1</span></code> otherwise</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -401,6 +430,8 @@ distribution, or a single such random int if <cite>size</cite> not provided.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.api_support.html" class="btn btn-neutral float-right" title="causal_da.api_support package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="causal_da.html" class="btn btn-neutral float-left" title="causal_da package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
