@@ -16,7 +16,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'Causal DA'
@@ -27,7 +26,6 @@ author = 'Takeshi Teshima'
 version = ''
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -40,7 +38,9 @@ release = '1.0.0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.doctest',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -69,7 +69,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -100,12 +99,10 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
-
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'CausalDAdoc'
-
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -131,20 +128,15 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'CausalDA.tex', 'Causal DA Documentation',
-     'Takeshi Teshima', 'manual'),
+    (master_doc, 'CausalDA.tex', 'Causal DA Documentation', 'Takeshi Teshima',
+     'manual'),
 ]
-
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'causalda', 'Causal DA Documentation',
-     [author], 1)
-]
-
+man_pages = [(master_doc, 'causalda', 'Causal DA Documentation', [author], 1)]
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -152,11 +144,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'CausalDA', 'Causal DA Documentation',
-     author, 'CausalDA', 'One line description of project.',
-     'Miscellaneous'),
+    (master_doc, 'CausalDA', 'Causal DA Documentation', author, 'CausalDA',
+     'One line description of project.', 'Miscellaneous'),
 ]
-
 
 # -- Extension configuration -------------------------------------------------
 autoclass_content = 'both'

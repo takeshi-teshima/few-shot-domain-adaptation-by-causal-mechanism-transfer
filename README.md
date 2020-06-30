@@ -10,10 +10,23 @@
 ## Installation
 ```
 $ pip install git+https://github.com/takeshi-teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer
+
+$ pip install -r experiments/icml2020/requirements.txt
+
+# To reproduce the experiments of our ICML2020 paper:
+$ pip install -r experiments/icml2020/requirements.txt
 ```
 
 ## Documentation
 [API reference](#)
+
+## If you want to...
+perform Bayesian optimization, save something for your own database, etc.
+
+- See `causal_da/api.py` and write up an interface for your own pipeline/ecosystem.
+
+## Experiments
+See [experiments/README.md](experiments/README.md).
 
 ## License
 This project is licensed under the terms of the [Apache 2.0 license](./LICENSE).
@@ -31,11 +44,29 @@ If you use the code in your project, please consider citing:
 }
 ```
 
+## Technical Todo
+- ica_torch
+  - trainerのDummyRunLoggerに対処する
+  - Cleanup gcl_trainer.py
+  - Add documentation
+- algorithm
+  - API作成
+  - 情報の保存機構を決める
+  - Documentation
+  - Sandboxの内容を移行する
+- experiments
+  - 実験スクリプトを移植(causal_daのAPIを呼ぶ形にする)
+  - 実験のHPをHydraに移植
+  - ExperimentのREADMEを書く
+- causal_da
+  - 2種類のAPI作成(Databaseに保存するGrid-search，外から呼ぶだけのパラメータ決め打ち実行)，Documentation.
+
 ## Todo
 - Add Documentation URL.
 - Add experiment command.
 - Add read-the-docs badge.
 - Add tutorial.
+- Add experiments/README.md
 
 ## Todo (lower priority)
 - Write introduction section here.

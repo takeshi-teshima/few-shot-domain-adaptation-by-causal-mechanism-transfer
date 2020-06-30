@@ -1,0 +1,4 @@
+*.rst
+!index.rst
+!modules.rst
+!setup.rst
