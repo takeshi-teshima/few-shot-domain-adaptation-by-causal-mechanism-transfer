@@ -1,5 +1,6 @@
 documentation:
-	mkdir -p docs/temp_src/_static
+	rm -r docs/temp_src &
+	mkdir docs/temp_src; mkdir docs/temp_src/_static
 	cp -f docs/conf.py docs/temp_src/
 	cp -f docs/index.rst docs/temp_src/
 	cp -f docs/modules.rst docs/temp_src/

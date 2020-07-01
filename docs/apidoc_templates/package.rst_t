@@ -47,8 +47,10 @@ Submodules
    :format: html
 
 {%- if subpackages %}
+
 :raw-html:`<br />`
 :raw-html:`<h2>Module contents</h2>`
+
 {% endif %}
 
 {%- if submodules %}
