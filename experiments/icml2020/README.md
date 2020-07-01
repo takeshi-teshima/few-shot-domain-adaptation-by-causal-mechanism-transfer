@@ -33,16 +33,19 @@ This experiment depends on MongoDB to store the intermediate results.
 ### Note
 - Don't install `bson` package. It has a conflicting name with the `PyMongo` package.
 
-# Experiment
+# Running the experiment
 
 - Modify the experiment condition in `config/`. At least, `config/database.yml` needs to be modified for the script to run correctly.
 - Run the experiment by
 
 ```bash
 $ python run_experiment.py
+
+# Or debug mode (exceptions are emitted to outside of the experiment loop)
+$ python run_experiment.py debug=True method.ica_train.max_epochs=20
 ```
 
-## Check the results
+## Checking the results
 1. To check the results run by Sacred, modify the contents in `scripts/omniboard.sh` and run
   ```bash
   $ scripts/omniboard.sh
@@ -55,10 +58,9 @@ $ python run_experiment.py
    $ npm install -g omniboard
    ```
 
-## Format the results into a LaTeX table.
+## Formatting the results into a LaTeX table.
 - Run `$ jupyter notebook` to check the script to generate the table in the paper. (The compiled table is output in `output/`).
   Originally, a MongoDB database was used, but the records are pickled under `pickle/` here.
 
-# Data
-The raw data can be downloaded from:
-- [World Gasoline Demand Data](http://people.stern.nyu.edu/wgreene/Econometrics/PanelDataSets.htm)
+# Re-downloading the data
+- See the README of each `data/<dataname>_raw` directory.

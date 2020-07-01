@@ -50,9 +50,11 @@ class CausalMechanismTransfer:
             self,
             src_data,
             ica_data,
-            ica_loggers,
+            ica_run_logger,
             ica_intermediate_evaluators,
-            augmenter_evaluators: Iterable[AugmenterEvaluator] = []):
+            ica_final_evaluators,
+            augmenter_evaluators: Iterable[AugmenterEvaluator] = [],
+            augmenter_final_evaluators: Iterable[AugmenterEvaluator] = []):
         """A version of ``train()`` that also records the intermediate information.
 
         Parameters
@@ -63,19 +65,25 @@ class CausalMechanismTransfer:
         ica_data : ``tuple``
             Contains the source domain data passed to the ICA method.
 
-        train_params : ``dict``
-            Keys:
+        ica_run_logger
 
-            ``device`` : The device specification (e.g., ``'gpu'``) for training in PyTorch.
+        ica_intermediate_evaluators
+
+        ica_final_evaluators
+
         """
         for evaluator in augmenter_evaluators:
             evaluator.set_augmenter(self.augmenter)
+        for evaluator in augmenter_final_evaluators:
+            evaluator.set_augmenter(self.augmenter)
         ica_intermediate_evaluators.extend(augmenter_evaluators)
+        ica_final_evaluators.extend(augmenter_final_evaluators)
 
         # Fit outlier detector
         self.augmenter._fit_novelty_detector(src_data)
         return self.trainable_invertible_ica.train_and_record(
-            ica_data, ica_loggers, ica_intermediate_evaluators)
+            ica_data, ica_run_logger, ica_intermediate_evaluators,
+            ica_final_evaluators)
 
     def train(self):
         raise NotImplementedError()

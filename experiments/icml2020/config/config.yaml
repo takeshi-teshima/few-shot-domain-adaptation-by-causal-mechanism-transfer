@@ -7,14 +7,14 @@ debug: False
 
 recording:
   table: icml2020
-  mlflow_tracking_uri: "sqlite:///local/mlflow.sqlite.db"
   save_model_path: "local/saved_models"
   recording_set: icml2020
   log_interval: 20
   sacred_artifact_dir: "local/sacred_artifact"
+  data_cache_base_path: 'pickle/data'
 
 parallelization:
-  data_run_id: '1'
+  data_run_id: 'JAPAN_1'
 
 misc:
   max_threads: '-1'

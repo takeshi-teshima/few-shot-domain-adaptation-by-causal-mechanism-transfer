@@ -6,10 +6,36 @@ from .trainer_util import random_pick_wrong_target, _loss_1, Log1pLoss
 from .logging_util import DummyRunLogger
 
 
-def GCL_nonlinear_ica_train(batch_size, max_epochs,
+def GCL_nonlinear_ica_train(data_tensor, c_src, batch_size, max_epochs,
                             gcl_ica_model: GeneralizedContrastiveICAModel,
-                            data_tensor, c_src, device, optimizer,
-                            epoch_callback, run_logger):
+                            device, optimizer, epoch_callback, final_callback,
+                            run_logger):
+    """
+    Parameters
+    ----------
+    batch_size
+
+    max_epochs
+
+    gcl_ica_model : ``GeneralizedContrastiveICAModel``
+
+    data_tensor
+
+    c_src
+
+    device
+
+    optimizer
+
+    epoch_callback
+        The callback to be called after every epoch the training loop.
+
+    final_callback
+        The callback to be called at the end of the training loop.
+        To be called with the single argument ``None``.
+
+    run_logger
+    """
 
     trainerbase = GCLTrainer(gcl_ica_model,
                              optimizer,
@@ -27,6 +53,10 @@ def GCL_nonlinear_ica_train(batch_size, max_epochs,
     @trainer.on(Events.EPOCH_COMPLETED)
     def call_epoch_callback(trainer):
         epoch_callback(trainer.state.epoch)
+
+    @trainer.on(Events.COMPLETED)
+    def call_final_callback(_):
+        final_callback(None)
 
     dataset = torch.utils.data.TensorDataset(data_tensor,
                                              torch.LongTensor(c_src))

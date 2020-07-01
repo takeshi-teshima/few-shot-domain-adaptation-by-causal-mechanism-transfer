@@ -48,11 +48,9 @@ def _evaluate_proposed_method(X_src, Y_src, c_src, tar_tr, tar_te, cfg,
     ## Build and run methods
     ##
     save_model_path = Path(cfg.recording.save_model_path)
-    run_kwargs = dict(
-        train_params=dict(val_freq=cfg.recording.log_interval,
-                          epochs=cfg.method.ica_train.max_epochs,
-                          batch_size=cfg.method.ica_train.batch_size,
-                          device="cuda" if cfg.misc.gpu else "cpu"))
+    train_params = dict(epochs=cfg.method.ica_train.max_epochs,
+                        batch_size=cfg.method.ica_train.batch_size,
+                        device="cuda" if cfg.misc.gpu else "cpu")
     previous_results = MongoAggregator(
         get_table(cfg.recording.table, cfg.database.mongo_host,
                   cfg.database.mongo_port, cfg.database.mongo_user,
@@ -65,16 +63,15 @@ def _evaluate_proposed_method(X_src, Y_src, c_src, tar_tr, tar_te, cfg,
         }).get_results_pd(index=None)
 
     method_experiment_api = CausalMechanismTransferICML2020API(
-        cfg.method.run_split_number,
-        cfg.method.run_split_total_number,
         run_logger=run_logger,
         param_history_manager=PandasParamHistoryManager(previous_results),
     )
 
     method_experiment_api.run_method_and_eval(
         X_src, Y_src, c_src, OmegaConf.to_container(cfg.method),
+        cfg.method.run_split_number, cfg.method.run_split_total_number,
         save_model_path, ica_intermediate_evaluators, augmenter_evaluators,
-        run_kwargs, cfg.debug)
+        train_params, cfg.debug)
 
 
 @hydra.main(config_path='config/config.yaml')
@@ -82,13 +79,15 @@ def main(cfg: DictConfig):
     data_name = cfg.data.name
     data_path = hydra.utils.to_absolute_path(cfg.data.path)
     max_threads = cfg.misc.max_threads
-    mlflow_tracking_uri = cfg.recording.mlflow_tracking_uri
     data_run_id = cfg.parallelization.data_run_id
-    mlflow_tracking_uri = cfg.recording.mlflow_tracking_uri
-
     cfg.method.augment_size = eval(cfg.method.augment_size)
+    cfg.recording.save_model_path = hydra.utils.to_absolute_path(
+        cfg.recording.save_model_path)
+    cfg.recording.data_cache_base_path = hydra.utils.to_absolute_path(
+        cfg.recording.data_cache_base_path)
 
     mongo_params = cfg.database.mongo_host, cfg.database.mongo_port, cfg.database.mongo_user, cfg.database.mongo_pass, cfg.database.mongo_dbname
+
     run_logger = MongoAndSacredRunLogger(
         'icml2020', get_mongo_observer(*mongo_params),
         get_table(cfg.recording.table, *mongo_params),
@@ -99,7 +98,6 @@ def main(cfg: DictConfig):
              data_path=data_path,
              data_run_id=data_run_id,
              max_threads=max_threads,
-             mlflow_tracking_uri=mlflow_tracking_uri,
              recording_set=cfg.recording.recording_set,
              method=cfg.method.name))
     ######
@@ -120,10 +118,12 @@ def main(cfg: DictConfig):
     data_module = import_module(f'data.{data_name}')
     dataset = data_module.get_data(cfg.data.path)
 
+    data_cache_base_path = cfg.recording.data_cache_base_path
     (X_src, Y_src, c_src, X_tar_tr, Y_tar_tr, X_tar_te, Y_tar_te, c_tar_tr,
      c_tar_te), target_c = get_or_find_cached_data(
          dataset,
          data_cache_name,
+         data_cache_base_path,
          target=cfg.data.target_domain,
          n_target_c=1,
          path=data_path,

@@ -29,7 +29,7 @@ class DummyEvaluatorRunner(EvaluatorRunner):
     def __init__(self):
         pass
 
-    def __call__(self, augmenter, epoch=None):
+    def __call__(self, epoch=None):
         pass
 
     def is_epoch_to_run(self, epoch) -> bool:

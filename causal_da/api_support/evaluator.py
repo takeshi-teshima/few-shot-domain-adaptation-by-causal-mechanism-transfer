@@ -83,3 +83,12 @@ class AugmenterValidationScoresEvaluator(AugmenterEvaluatorBase):
                 name: val_scorer(augmenter)
                 for name, val_scorer in self.validation_scorers_dict.items()
             }, 'metric')
+
+
+class AugmenterSavingEvaluator(AugmenterEvaluatorBase):
+    def __init__(self, model_logger, namespace='', run_logger=None):
+        super().__init__(namespace, run_logger)
+        self.model_logger = model_logger
+
+    def evaluate(self, augmenter, epoch):
+        self.model_logger.save(augmenter)
