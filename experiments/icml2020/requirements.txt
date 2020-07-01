@@ -1,5 +1,4 @@
-hydra
-
+hydra-core
 ipython
 
 # ## Evaluation

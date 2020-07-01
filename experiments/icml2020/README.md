@@ -4,6 +4,8 @@ This directory contains the code for reproducing the experimental results.
 # Preparation
 This experiment depends on MongoDB to store the intermediate results.
 
+1. Install this repository by following the [README.md](https://github.com/takeshi-teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/blob/master/README.md).
+
 1. Install MongoDB via tarball
   ```sh
   $ wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.6.3.tgz
@@ -12,16 +14,18 @@ This experiment depends on MongoDB to store the intermediate results.
   and set `path`.
   (Sidenote: the installation via homebrew / linuxbrew did not work for me).
 
-2. Create appropriate users  and tables etc.
-```sh
-$ mongo
-> use icml2020
-> db.createUser({user:'me',pwd:'pass',roles:[{role:'dbOwner',db:'icml2020'}]})
-> use sacred
-> db.createUser({user:'me',pwd:'pass',roles:[{role:'dbOwner',db:'sacred'}]})
-```
+1. Modify the contents of `scripts/config.sh` to match your local environment (to specify where the database files will be stored).
 
-2. Modify the contents of `scripgts/config.sh` and run `$ scripts/mongo.sh`.
+1. Run `$ scripts/mongo.sh` to start the MongoDB process (the script requires the `tmux` package. If you don't have it, install it or start mongo with your own script).
+
+1. Create appropriate users and tables.
+  ```sh
+  $ mongo
+  > use icml2020
+  > db.createUser({user:'me',pwd:'pass',roles:[{role:'dbOwner',db:'icml2020'}]})
+  > use sacred
+  > db.createUser({user:'me',pwd:'pass',roles:[{role:'dbOwner',db:'sacred'}]})
+  ```
 
 ### Note
 - Don't install `bson` package. It has a conflicting name with the `PyMongo` package.
