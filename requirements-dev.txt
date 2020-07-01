@@ -1,6 +1,8 @@
 # Documentation
 sphinx
 sphinx_rtd_theme
+sphinx-autodoc-typehints
+docstr-coverage
 
 # Debug
 pudb

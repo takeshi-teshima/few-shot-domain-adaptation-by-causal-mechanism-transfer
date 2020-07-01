@@ -6,12 +6,33 @@ from inn_torch.wrappers import SequentialFlow
 
 
 class GlowNonExponential(nn.Module):
+    """A Glow model based on the exponential-activation-free affine coupling layers."""
     def __init__(self, depth, dim, n_hidden=20, use_plu=False):
+        """
+        Parameters
+        ----------
+        depth : ``int``
+            The number of the (invertible linear, affine coupling) flow layer pairs to stack.
+
+        dim : ``int``
+            The dimension of the input data.
+
+        n_hidden : ``int``
+            The number of the hidden units of the parametrization of $s$ and $t$ in each affine coupling layer (the number of layers is fixed at one-hidden-layer).
+
+        use_plu : ``bool`` (default ``False``)
+            Whether to use the PLU decomposition device to parametrize the invertible linear layer.
+
+        Note
+        ----
+        Since we employ invertible linear layers, we do not require
+        dimension-swap layers in between the affine coupling layers.
+        """
         super().__init__()
         chain = []
         D, d = dim, dim // 2
         chain.append(layers.ActNorm(dim))
-        for i in range(depth):
+        for _ in range(depth):
             if use_plu:
                 chain.append(layers.InvertiblePLU(dim))
             else:

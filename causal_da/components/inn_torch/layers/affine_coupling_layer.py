@@ -33,11 +33,16 @@ class AffineCouplingLayer(nn.Module):
 
 
 class NonexponentialAffineCouplingLayer(nn.Module):
+    """An affine coupling layer without the exponential activation function."""
     def __init__(self, d: int, net: nn.Module):
         """
-        Params:
-            d: Dimension of the _split.
-            net: A neural network of type (n_sample, d) -> tuple((n_sample, D - d), (n_sample, D - d))
+        Parameters
+        ----------
+        d :
+            Dimension at which the input vector is split.
+
+        net : ``nn.Module``
+            A neural network taking a tensor of ``(n_sample, d)`` as inputs and outputs a tuple of ``numpy.ndarrays` of form: ``tuple((n_sample, D - d), (n_sample, D - d))``.
         """
         super().__init__()
         self.d = d
