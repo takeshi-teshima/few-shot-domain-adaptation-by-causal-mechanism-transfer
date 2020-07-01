@@ -38,6 +38,7 @@ release = '1.0.0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx_autodoc_typehints',
     'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',
     'sphinx.ext.doctest',
@@ -150,3 +151,4 @@ texinfo_documents = [
 
 # -- Extension configuration -------------------------------------------------
 autoclass_content = 'both'
+add_module_names = False
