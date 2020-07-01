@@ -1,22 +1,12 @@
-hydra-core
-ipython
+# Experiment support
+hydra-core==0.11.3
 
-# ## Evaluation
-# packaging
+## Recording
+dill==0.3.1.1
+mlflow==1.2.0
+sacred==0.8.1
+pymongo==3.9.0
 
-# ## Visualization
-# matplotlib
-# seaborn
-
-# ## Recording
-# joblib
-# dill
-# mlflow
-
-# #### Sacred
-# sacred
-# pymongo
-
-# ## Results
-# pandas_ply
-# incense
+## Compiling results
+ipython==6.5.0
+pandas-ply==0.2.1

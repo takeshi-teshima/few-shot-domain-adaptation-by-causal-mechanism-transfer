@@ -6,6 +6,9 @@ This experiment depends on MongoDB to store the intermediate results.
 
 1. Install this repository by following the [README.md](https://github.com/takeshi-teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/blob/master/README.md).
 
+1. Install the requirements: `pip install -r requirements.txt`.
+   (In case some dependencies are missing, please see `full_requirements.txt`)
+
 1. Install MongoDB via tarball
   ```sh
   $ wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.6.3.tgz
