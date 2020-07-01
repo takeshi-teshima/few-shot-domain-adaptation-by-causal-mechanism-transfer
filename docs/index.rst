@@ -21,8 +21,9 @@ Do you want to...
 perform Bayesian optimization, save something for your own database, etc?
 See `causal_da/api.py` and write up an interface for your own pipeline/ecosystem.
 
-`Table of contents <modules.html>`_
 
+`Package contents tree <modules.html>`_
+=======================================
 
 .. toctree::
    :glob:
