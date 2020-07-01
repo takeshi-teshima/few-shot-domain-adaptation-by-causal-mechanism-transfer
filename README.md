@@ -7,8 +7,8 @@
 * Python 3.6+
 * See `requirements.txt` for the others.
 
-## Installation
-```
+## Install
+```bash
 $ pip install git+https://github.com/takeshi-teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer
 
 $ pip install -r experiments/icml2020/requirements.txt
@@ -17,13 +17,15 @@ $ pip install -r experiments/icml2020/requirements.txt
 $ pip install -r experiments/icml2020/requirements.txt
 ```
 
-## Documentation
+OR clone this repository and run
+```bash
+$ pip install .
+```
+and the package will be installed under the name of `causal-da` (the module name will be `causal_da`).
+
+
+## Usage
 [API reference](#)
-
-## If you want to...
-perform Bayesian optimization, save something for your own database, etc.
-
-- See `causal_da/api.py` and write up an interface for your own pipeline/ecosystem.
 
 ## Experiments
 See [experiments/README.md](experiments/README.md).
