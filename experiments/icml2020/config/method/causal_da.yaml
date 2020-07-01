@@ -1,0 +1,22 @@
+method:
+  name: causal-da
+
+  run_split_number: 1
+  run_split_total_number: 1
+
+  augment_size: None
+
+  base_param:
+    lr: [1e-3]
+    weight_decay: [1e-3, 1e-2, 1e-1]
+
+  model_param:
+    classifier_hidden_dim: [10, 20]
+    depth: [4, 8, 16]
+    n_hidden: [10, 100]
+    classifier_n_layer: [1]
+
+  ica_train:
+    batch_size: 32
+    # max_epochs: 500
+    max_epochs: 30

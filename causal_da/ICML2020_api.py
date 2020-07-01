@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Iterable, Dict, Optional, Union
 import numpy as np
 import torch
@@ -30,7 +31,7 @@ class _ICML2020API_Single_Run_Wrapper:
                           X_src,
                           Y_src,
                           c_src,
-                          save_model_path,
+                          save_model_path: Path,
                           ica_intermediate_evaluators,
                           augmenter_evaluators,
                           train_params=dict(epochs=500,
@@ -117,9 +118,10 @@ class _ICML2020API_Single_Run_Wrapper:
         lr = params_injector.get('lr')
         weight_decay = params_injector.get('weight_decay')
         device = train_params['device']
-        val_freq = train_params.get('val_freq', 100)
-        ica_model.set_train_params(lr, weight_decay, dim, device, val_freq,
-                                   n_label, save_model_path)
+        batch_size = train_params.get('batch_size')
+        max_epochs = train_params.get('epochs')
+        ica_model.set_train_params(lr, weight_decay, device, batch_size,
+                                   max_epochs)
         return ica_model
 
 
@@ -170,8 +172,8 @@ class CausalMechanismTransferICML2020API:
         self.param_history_manager = param_history_manager
 
     def _prepare_param_grid(self, cfg_method):
-        space = cfg_method.base_param
-        space.update(cfg_method.model_param)
+        space = cfg_method['base_param']
+        space.update(cfg_method['model_param'])
         param_grid = list(ParameterGrid(space))
         param_grid = self._split_and_filter_hyperparam_candidates(param_grid)
         return param_grid
@@ -184,10 +186,16 @@ class CausalMechanismTransferICML2020API:
             param_grid = self.param_history_manager.filter(param_grid)
         return param_grid
 
-    def run_method_and_eval(self, X_src_train, Y_src_train, c_src_train,
-                            cfg_method, save_model_path,
-                            ica_intermediate_evaluators, augmenter_evaluators,
-                            run_kwargs):
+    def run_method_and_eval(self,
+                            X_src_train,
+                            Y_src_train,
+                            c_src_train,
+                            cfg_method,
+                            save_model_path: Path,
+                            ica_intermediate_evaluators,
+                            augmenter_evaluators,
+                            run_kwargs,
+                            debug: bool = False):
         """Main interface.
         Runs through all the hyper-paramter candidates except those for which we have a previous run record.
         Designed for training, probing the performance, and saving the results in a database that is connected to Sacred run database (via sacred's ``run_id``), for all hyper-parameter combinations.
@@ -202,22 +210,30 @@ class CausalMechanismTransferICML2020API:
 
         cfg_method
 
-        save_model_path
+        save_model_path : ``pathlib.Path``
 
         ica_intermediate_evaluators
 
         augmenter_evaluators
 
         run_kwargs
+
+        debug : ``bool``
+            Debug mode (default ``False``). If false, exceptions are not caught during the loop.
         """
         args = X_src_train, Y_src_train, c_src_train, save_model_path, ica_intermediate_evaluators, augmenter_evaluators
         self.single_run_wrapper = _ICML2020API_Single_Run_Wrapper(
             args, run_kwargs)
         param_grid = self._prepare_param_grid(cfg_method)
         for params in param_grid:
-            try:
+            if debug:
                 self.run_logger.perform_run(
                     lambda idx, _params: self.single_run_wrapper(
                         idx, _params, run_logger=self.run_logger), params)
-            except Exception as err:
-                print(err)
+            else:
+                try:
+                    self.run_logger.perform_run(
+                        lambda idx, _params: self.single_run_wrapper(
+                            idx, _params, run_logger=self.run_logger), params)
+                except Exception as err:
+                    print(err)

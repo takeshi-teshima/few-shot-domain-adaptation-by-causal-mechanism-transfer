@@ -35,8 +35,11 @@ class GCLTrainableInvertibleICAModel:
                 hidden_dim=classifier_hidden_dim,
                 n_layer=classifier_n_layer))
 
-    def set_train_params(self, lr, weight_decay, device, n_label,
-                         save_model_path, batch_size, max_epochs):
+    def get_invertible_ica_model(self):
+        return self.model
+
+    def set_train_params(self, lr, weight_decay, device, batch_size,
+                         max_epochs):
         self.device = device
         self.lr = lr
         self.weight_decay = weight_decay

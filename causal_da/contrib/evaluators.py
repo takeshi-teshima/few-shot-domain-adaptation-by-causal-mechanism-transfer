@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Iterable, List, Dict
 import numpy as np
+import pandas as pd
 from causal_da.api_support.evaluator import AugmenterEvaluatorBase
 from causal_da.api_support.logging.model_logger import MLFlowMultiModelLogger
 
@@ -23,9 +24,9 @@ class AugmentingMultiAssessmentEvaluator(AugmenterEvaluatorBase):
         self.metrics = metrics
         self.augment_size = augment_size
 
-    def evaluate(self, epoch):
+    def evaluate(self, augmenter, epoch):
         # _X, _Y, _e, acceptance_ratio
-        augmenter_output = self.augmenter.augment_to_size(
+        augmenter_output = augmenter.augment_to_size(
             self.x_tr,
             self.y_tr,
             with_latent=True,
@@ -77,7 +78,7 @@ class ModelSavingEvaluator(AugmenterEvaluatorBase):
         path.mkdir(parents=True, exist_ok=True)
         self.model_logger = MLFlowMultiModelLogger(path, db_key, run_logger)
 
-    def __call__(self, augmenter, epoch):
+    def evaluate(self, augmenter, epoch):
         try:
             self.model_logger.save(augmenter, epoch)
         except Exception as e:

@@ -7,18 +7,20 @@ import numpy as np
 import torch
 import torch.nn as nn
 from numpy.random import randint
-from sklearn.svm import OneClassSVM
 
 
 class ICAAugmenter(nn.Module):
     def __init__(self,
                  feature_extractor,
-                 novelty_detector=OneClassSVM(nu=0.1, gamma="auto"),
-                 max_iter=100):
+                 novelty_detector,
+                 max_iter: Optional[int] = None):
         super().__init__()
         self.feature_extractor = feature_extractor
         self.novelty_detector = novelty_detector
-        self.max_iter = max_iter
+        if max_iter is None:
+            self.max_iter = 100
+        else:
+            self.max_iter = max_iter
 
     def _fit_novelty_detector(self, data):
         self.novelty_detector.fit(data)

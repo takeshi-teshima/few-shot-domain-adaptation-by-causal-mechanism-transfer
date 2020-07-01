@@ -1,0 +1,6 @@
+database:
+  mongo_user: me
+  mongo_pass: pass
+  mongo_host: localhost
+  mongo_port: 27017
+  mongo_dbname: icml2020

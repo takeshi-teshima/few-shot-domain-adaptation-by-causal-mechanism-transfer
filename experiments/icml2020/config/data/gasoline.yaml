@@ -1,0 +1,4 @@
+data:
+  name: gasoline
+  path: data/gasoline_raw/gasoline.csv
+  target_domain: JAPAN

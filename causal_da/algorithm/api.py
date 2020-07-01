@@ -1,4 +1,5 @@
 from typing import Iterable, Optional
+from sklearn.svm import OneClassSVM
 from .api_support.evaluators import AugmenterEvaluator
 from .ica_augmenter import ICATransferAugmenter
 
@@ -10,8 +11,9 @@ class CausalMechanismTransfer:
     """
     def __init__(
             self,
-            invertible_ica_model,
+            trainable_invertible_ica,
             predictor_model,
+            novelty_detector=OneClassSVM(nu=0.1, gamma="auto"),
             aug_max_iter: Optional[int] = None,
             augmentation_size: Optional[int] = None,
     ):
@@ -19,7 +21,7 @@ class CausalMechanismTransfer:
 
         Parameters
         ----------
-        invertible_ica_model : object
+        trainable_invertible_ica : object
             Trainable invertible ICA model for estimating the mechanism function.
             Required to implement ``train()`` and ``inv()``.
 
@@ -36,9 +38,11 @@ class CausalMechanismTransfer:
         ----------
         None : None
         """
-        self.invertible_ica_model = invertible_ica_model
-        self.augmenter = ICATransferAugmenter(self.invertible_ica_model,
-                                              aug_max_iter)
+        self.trainable_invertible_ica = trainable_invertible_ica
+        self.augmenter = ICATransferAugmenter(
+            self.trainable_invertible_ica.get_invertible_ica_model(),
+            novelty_detector=novelty_detector,
+            max_iter=aug_max_iter)
         self.predictor_model = predictor_model
         self.augmentation_size = augmentation_size
 
@@ -66,11 +70,11 @@ class CausalMechanismTransfer:
         """
         for evaluator in augmenter_evaluators:
             evaluator.set_augmenter(self.augmenter)
-        ica_intermediate_evaluators.append(augmenter_evaluators)
+        ica_intermediate_evaluators.extend(augmenter_evaluators)
 
         # Fit outlier detector
         self.augmenter._fit_novelty_detector(src_data)
-        return self.invertible_ica_model.train_and_record(
+        return self.trainable_invertible_ica.train_and_record(
             ica_data, ica_loggers, ica_intermediate_evaluators)
 
     def train(self):

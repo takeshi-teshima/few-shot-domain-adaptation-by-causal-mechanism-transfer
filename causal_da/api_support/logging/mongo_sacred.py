@@ -3,7 +3,7 @@ from sacred import Experiment
 from typing import Union
 import shutil
 from .base import RunLogger
-from mexlet.records.mongo import sanitize_data
+import numpy as np
 
 
 def sanitize_data(r):

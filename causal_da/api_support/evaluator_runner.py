@@ -3,6 +3,14 @@ class EvaluatorRunner:
         self.evaluators = evaluators
         self.run_interval = run_interval
 
+    def extend(self, evaluators):
+        if isinstance(self.evaluators, list):
+            self.evaluators + evaluators
+
+            _res = self.evaluators.extend(evaluators)
+        if _res is not None:
+            self.evaluators = _res
+
     def __call__(self, epoch=None):
         if (epoch is None) or self.is_epoch_to_run(epoch):
             for evaluator in self.evaluators:
