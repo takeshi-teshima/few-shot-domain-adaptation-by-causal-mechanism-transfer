@@ -79,7 +79,7 @@ def _evaluate_proposed_method(X_src, Y_src, c_src, tar_tr, tar_te, cfg,
 
 @hydra.main(config_path='config/config.yaml')
 def main(cfg: DictConfig):
-    data = cfg.data.name
+    data_name = cfg.data.name
     data_path = hydra.utils.to_absolute_path(cfg.data.path)
     max_threads = cfg.misc.max_threads
     mlflow_tracking_uri = cfg.recording.mlflow_tracking_uri
@@ -95,7 +95,7 @@ def main(cfg: DictConfig):
         f'{cfg.recording.sacred_artifact_dir}/icml2020_{cfg.recording.recording_set}'
     )
     run_logger.set_tags_exp_wide(
-        dict(data=data,
+        dict(data=data_name,
              data_path=data_path,
              data_run_id=data_run_id,
              max_threads=max_threads,
@@ -113,11 +113,11 @@ def main(cfg: DictConfig):
     ## Get data
     ##
     if cfg.data.target_domain is not None:
-        data_cache_name = f'{data}_{data_run_id}_{cfg.data.target_domain}'
+        data_cache_name = f'{data_name}_{data_run_id}_{cfg.data.target_domain}'
     else:
-        data_cache_name = f'{data}_{data_run_id}'
+        data_cache_name = f'{data_name}_{data_run_id}'
 
-    data_module = import_module(f'data.{data}')
+    data_module = import_module(f'data.{data_name}')
     dataset = data_module.get_data(cfg.data.path)
 
     (X_src, Y_src, c_src, X_tar_tr, Y_tar_tr, X_tar_te, Y_tar_te, c_tar_tr,
@@ -128,7 +128,7 @@ def main(cfg: DictConfig):
          n_target_c=1,
          path=data_path,
          return_target_c=True)
-    run_logger.set_tags_exp_wide({'Data type': data, 'target_c': target_c})
+    run_logger.set_tags_exp_wide({'target_c': target_c})
 
     tar_tr, tar_te = (X_tar_tr, Y_tar_tr, c_tar_tr), (X_tar_te, Y_tar_te,
                                                       c_tar_te)
@@ -142,9 +142,7 @@ def main(cfg: DictConfig):
 
     run_logger.set_tags_exp_wide(
         {'Augmentation size': cfg.method.augment_size})
-    # data,
-    # data_run_id,
-    # cfg.recording.recording_set, cfg.misc.n_trials,
+
     _evaluate_proposed_method(X_src, Y_src, c_src, tar_tr, tar_te, cfg,
                               run_logger)
 
