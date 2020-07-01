@@ -7,12 +7,6 @@ Welcome to Causal DA's documentation!
 =====================================
 
 
-.. toctree::
-   :maxdepth: 1
-
-   causal_da
-
-
 ..
    Indices and tables
    ==================
@@ -27,10 +21,12 @@ Do you want to...
 perform Bayesian optimization, save something for your own database, etc?
 See `causal_da/api.py` and write up an interface for your own pipeline/ecosystem.
 
+`Table of contents <modules.html>`_
 
-..
-   .. toctree::
-      :maxdepth: 2
-      :caption: Contents:
 
-      causal_da
+.. toctree::
+   :glob:
+   :maxdepth: 10
+   :hidden:
+
+   causal_da

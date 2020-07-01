@@ -2,7 +2,7 @@
 sphinx
 sphinx_rtd_theme
 sphinx-autodoc-typehints
-docstr-coverage
+git+https://github.com/HunterMcGushion/docstr_coverage.git
 
 # Debug
 pudb
