@@ -7,5 +7,8 @@ documentation:
 	sphinx-build -b html ./docs/temp_src ./docs/_build
 	docstr-coverage causal_da --failunder=0 --skipmagic --skipfiledoc --badge ./docs/coverage_badge.svg  2>&1 | tee docs/docstr-coverage-output.txt
 
+install-dev:
+	pip install .
+
 open-docs:
 	xdg-open docs/_build/index.html

@@ -1,6 +1,8 @@
 ## Developer README
 * Run `$ make documentation` to build the documentation as well as the coverage badge.
 * Check `docs/docstr-coverage-output.txt` for the output by the [coverage checker](https://github.com/HunterMcGushion/docstr_coverage).
+* Run `$ make install-dev documentation` to both re-install the package locally and run the documentation generation.
+  Note that we need to update the package if you are using a version installed by `pip install .`.
 
 ## Setup history
 * Applied sphinx-apidoc template based on [this SO question](https://stackoverflow.com/questions/50361218/remove-the-word-module-from-sphinx-documentation).
