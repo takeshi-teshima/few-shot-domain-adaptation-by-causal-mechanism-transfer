@@ -1,30 +1,33 @@
-causal\_da.algorithm package
-============================
 
-Submodules
-----------
+causal\_da.algorithm
+====================
 
-causal\_da.algorithm.api module
--------------------------------
+
+
+
+causal\_da.algorithm.api
+------------------------
 
 .. automodule:: causal_da.algorithm.api
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
-causal\_da.algorithm.ica\_augmenter module
-------------------------------------------
+
+causal\_da.algorithm.ica\_augmenter
+-----------------------------------
 
 .. automodule:: causal_da.algorithm.ica_augmenter
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 
-Module contents
----------------
 
+
+.. role:: raw-html(raw)
+   :format: html
 .. automodule:: causal_da.algorithm
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

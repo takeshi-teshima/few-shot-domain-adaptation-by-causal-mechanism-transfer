@@ -1,32 +1,37 @@
-causal\_da package
-==================
 
-Subpackages
------------
+causal\_da
+==========
 
-.. toctree::
 
-    causal_da.algorithm
-    causal_da.api_support
-    causal_da.components
-    causal_da.contrib
 
-Submodules
-----------
 
-causal\_da.ICML2020\_api module
--------------------------------
+causal\_da.ICML2020\_api
+------------------------
 
 .. automodule:: causal_da.ICML2020_api
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 
-Module contents
----------------
+
+
+.. role:: raw-html(raw)
+   :format: html
+
+:raw-html:`<br />`
+:raw-html:`<h2>Module contents</h2>`
+
 
 .. automodule:: causal_da
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. toctree::
+   :maxdepth: 4
+
+   causal_da.algorithm
+   causal_da.api_support
+   causal_da.components
+   causal_da.contrib

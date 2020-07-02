@@ -1,8 +1,9 @@
-few-shot-domain-adaptation-by-causal-mechanism-transfer
+:orphan:
+
+causal_da package contents
 =======================================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 0
 
    causal_da
-   setup
