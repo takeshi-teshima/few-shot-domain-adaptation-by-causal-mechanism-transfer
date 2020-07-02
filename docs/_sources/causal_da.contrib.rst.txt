@@ -1,0 +1,34 @@
+
+causal\_da.contrib
+==================
+
+
+
+
+causal\_da.contrib.evaluators
+-----------------------------
+
+.. automodule:: causal_da.contrib.evaluators
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+
+:raw-html:`<br />`
+:raw-html:`<h2>Module contents</h2>`
+
+
+.. automodule:: causal_da.contrib
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. toctree::
+   :maxdepth: 4
+
+   causal_da.contrib.evaluators_support

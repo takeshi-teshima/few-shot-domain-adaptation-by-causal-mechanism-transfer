@@ -1,0 +1,19 @@
+
+causal\_da.components
+=====================
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+
+:raw-html:`<br />`
+:raw-html:`<h2>Module contents</h2>`
+
+
+.. toctree::
+   :maxdepth: 4
+
+   causal_da.components.aug_predictor
+   causal_da.components.ica_torch
+   causal_da.components.inn_torch

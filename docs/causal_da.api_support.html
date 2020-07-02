@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.api_support &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.api_support.logging" href="causal_da.api_support.logging.html" />
+    <link rel="prev" title="causal_da.algorithm" href="causal_da.algorithm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">causal_da.api_support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-causal_da.api_support.assessment_base">causal_da.api_support.assessment_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-causal_da.api_support.evaluator">causal_da.api_support.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-causal_da.api_support.evaluator_runner">causal_da.api_support.evaluator_runner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-causal_da.api_support.index_class_label">causal_da.api_support.index_class_label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+      <li>causal_da.api_support</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.api_support.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-api-support">
+<h1>causal_da.api_support<a class="headerlink" href="#causal-da-api-support" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.api_support.assessment_base">
+<span id="causal-da-api-support-assessment-base"></span><h2>causal_da.api_support.assessment_base<a class="headerlink" href="#module-causal_da.api_support.assessment_base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.assessment_base.AssessmentBase">
+<em class="property">class </em><code class="sig-name descname">AssessmentBase</code><a class="headerlink" href="#causal_da.api_support.assessment_base.AssessmentBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class to express the grouping of certain classes
+which provide the probing functionality for evaluation.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.assessment_base.AugAssessmentBase">
+<em class="property">class </em><code class="sig-name descname">AugAssessmentBase</code><a class="headerlink" href="#causal_da.api_support.assessment_base.AugAssessmentBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.assessment_base.AssessmentBase" title="causal_da.api_support.assessment_base.AssessmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.assessment_base.AssessmentBase</span></code></a></p>
+<p>The base class of the probing functionalities for an augmenter.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.assessment_base.StandardAssessmentBase">
+<em class="property">class </em><code class="sig-name descname">StandardAssessmentBase</code><a class="headerlink" href="#causal_da.api_support.assessment_base.StandardAssessmentBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.assessment_base.AssessmentBase" title="causal_da.api_support.assessment_base.AssessmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.assessment_base.AssessmentBase</span></code></a></p>
+<p>The utility base class to express the signature of a certain type of probing functionality.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.api_support.evaluator">
+<span id="causal-da-api-support-evaluator"></span><h2>causal_da.api_support.evaluator<a class="headerlink" href="#module-causal_da.api_support.evaluator" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.evaluator.AugmenterEvaluatorBase">
+<em class="property">class </em><code class="sig-name descname">AugmenterEvaluatorBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">namespace</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterEvaluatorBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.evaluator.EvaluatorBase" title="causal_da.api_support.evaluator.EvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.evaluator.EvaluatorBase</span></code></a></p>
+<p>Utility base class for evaluating the augmenter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">set_augmenter()</span></code> needs to be called before evaluation.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>namespace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the namespace to be prepended to the evaluation result dictionary.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.AugmenterEvaluatorBase.evaluate">
+<em class="property">abstract </em><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterEvaluatorBase.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the evaluation result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>augmenter</strong> – the augmenter to be evaluated.</p></li>
+<li><p><strong>epoch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.AugmenterEvaluatorBase.set_augmenter">
+<code class="sig-name descname">set_augmenter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterEvaluatorBase.set_augmenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the augmenter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>augmenter</strong> (<a class="reference internal" href="causal_da.algorithm.html#causal_da.algorithm.ica_augmenter.ICATransferAugmenter" title="causal_da.algorithm.ica_augmenter.ICATransferAugmenter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICATransferAugmenter</span></code></a>) – the augmenter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.evaluator.AugmenterSavingEvaluator">
+<em class="property">class </em><code class="sig-name descname">AugmenterSavingEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model_logger</span></em>, <em class="sig-param"><span class="n">namespace</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterSavingEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.evaluator.AugmenterEvaluatorBase" title="causal_da.api_support.evaluator.AugmenterEvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.evaluator.AugmenterEvaluatorBase</span></code></a></p>
+<p>The utility evaluator class to save the augmenter model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_logger</strong> – the model logger.</p></li>
+<li><p><strong>namespace</strong> – the namespace to be prepended to the result dictionary keys.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.AugmenterSavingEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterSavingEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>augmenter</strong> – the augmenter model to be saved.</p></li>
+<li><p><strong>epoch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.evaluator.AugmenterValidationScoresEvaluator">
+<em class="property">class </em><code class="sig-name descname">AugmenterValidationScoresEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">validation_scorers_dict</span></em>, <em class="sig-param"><span class="n">namespace</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterValidationScoresEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.evaluator.AugmenterEvaluatorBase" title="causal_da.api_support.evaluator.AugmenterEvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.evaluator.AugmenterEvaluatorBase</span></code></a></p>
+<p>Evaluator to record potentially relevant validation scores.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO Remove this class and integrate with the others?</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>validation_scorers_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="causal_da.api_support.validator.html#causal_da.api_support.validator.base.ValidationScorerBase" title="causal_da.api_support.validator.base.ValidationScorerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValidationScorerBase</span></code></a>]) – the dictionary containing the scorers.</p></li>
+<li><p><strong>namespace</strong> – the namespace to be prepended to the result dictionary keys.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results of the assessments.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.AugmenterValidationScoresEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.AugmenterValidationScoresEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.evaluator.EvaluatorBase">
+<em class="property">class </em><code class="sig-name descname">EvaluatorBase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">namespace</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.EvaluatorBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class of the evaluators.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usage: Override <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> method. Do whatever evaluation you like.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>namespace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the namespace to be prepended to the evaluation result dictionary.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.EvaluatorBase.evaluate">
+<em class="property">abstract </em><code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.EvaluatorBase.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.EvaluatorBase.get_save_results_type">
+<code class="sig-name descname">get_save_results_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.EvaluatorBase.get_save_results_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the specification string of the result type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The method to save the results may differ between numeric values and other data types
+depending on the <code class="docutils literal notranslate"><span class="pre">run_logger</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator.EvaluatorBase.save_results_dict">
+<code class="sig-name descname">save_results_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span></em>, <em class="sig-param"><span class="n">logtype</span><span class="o">=</span><span class="default_value">'metric'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator.EvaluatorBase.save_results_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the results using the <code class="docutils literal notranslate"><span class="pre">run_logger</span></code>.
+:type results: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>
+:param results: the dictionary containing the results to be stored.
+:type logtype: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>
+:param logtype: the logging type of the results depending on whether this method is run inside or outside the training loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.api_support.evaluator_runner">
+<span id="causal-da-api-support-evaluator-runner"></span><h2>causal_da.api_support.evaluator_runner<a class="headerlink" href="#module-causal_da.api_support.evaluator_runner" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.evaluator_runner.EvaluatorRunner">
+<em class="property">class </em><code class="sig-name descname">EvaluatorRunner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">evaluators</span></em>, <em class="sig-param"><span class="n">run_interval</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator_runner.EvaluatorRunner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A utility to run a set of evaluators in an experiment run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evaluators</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="#causal_da.api_support.evaluator.EvaluatorBase" title="causal_da.api_support.evaluator.EvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a>]) – the list of evaluators.</p></li>
+<li><p><strong>run_interval</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the interval at which the evaluations should run in a training loop (unit: epoch).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator_runner.EvaluatorRunner.extend">
+<code class="sig-name descname">extend</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">evaluators</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator_runner.EvaluatorRunner.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add some evaluators.
+:type evaluators: <code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="#causal_da.api_support.evaluator.EvaluatorBase" title="causal_da.api_support.evaluator.EvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorBase</span></code></a>]
+:param evaluators: the evaluators to be added.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.evaluator_runner.EvaluatorRunner.is_epoch_to_run">
+<code class="sig-name descname">is_epoch_to_run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.evaluator_runner.EvaluatorRunner.is_epoch_to_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decide whether the evaluations should run at this epoch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the epoch when this evaluation is run (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.api_support.index_class_label">
+<span id="causal-da-api-support-index-class-label"></span><h2>causal_da.api_support.index_class_label<a class="headerlink" href="#module-causal_da.api_support.index_class_label" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="causal_da.api_support.index_class_label.index_class_label">
+<code class="sig-name descname">index_class_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.index_class_label.index_class_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn the class label identifiers into numeric indices.</p>
+</dd></dl>
+
+<p><span class="raw-html"><br /></span>
+<span class="raw-html"><h2>Module contents</h2></span></p>
+<span class="target" id="module-causal_da.api_support"></span><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.api_support.logging.html">causal_da.api_support.logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.base">causal_da.api_support.logging.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.model_logger">causal_da.api_support.logging.model_logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.mongo_sacred">causal_da.api_support.logging.mongo_sacred</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.param_history_manager">causal_da.api_support.logging.param_history_manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.api_support.validator.html">causal_da.api_support.validator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.base">causal_da.api_support.validator.base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.performance">causal_da.api_support.validator.performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.scores">causal_da.api_support.validator.scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.timer">causal_da.api_support.validator.timer</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.api_support.logging.html" class="btn btn-neutral float-right" title="causal_da.api_support.logging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_da.algorithm.html" class="btn btn-neutral float-left" title="causal_da.algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

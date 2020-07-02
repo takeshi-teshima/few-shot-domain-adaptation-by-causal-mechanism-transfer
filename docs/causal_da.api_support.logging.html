@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.api_support.logging &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.api_support.validator" href="causal_da.api_support.validator.html" />
+    <link rel="prev" title="causal_da.api_support" href="causal_da.api_support.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.assessment_base">causal_da.api_support.assessment_base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.evaluator">causal_da.api_support.evaluator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.evaluator_runner">causal_da.api_support.evaluator_runner</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.index_class_label">causal_da.api_support.index_class_label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+          <li><a href="causal_da.api_support.html">causal_da.api_support</a> &raquo;</li>
+        
+      <li>causal_da.api_support.logging</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.api_support.logging.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-api-support-logging">
+<h1>causal_da.api_support.logging<a class="headerlink" href="#causal-da-api-support-logging" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.api_support.logging.base">
+<span id="causal-da-api-support-logging-base"></span><h2>causal_da.api_support.logging.base<a class="headerlink" href="#module-causal_da.api_support.logging.base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger">
+<em class="property">class </em><code class="sig-name descname">DummyRunLogger</code><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.logging.base.RunLogger" title="causal_da.api_support.logging.base.RunLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.logging.base.RunLogger</span></code></a></p>
+<p>Utility class to placehold the logger.</p>
+<p>Initialize the run-logger.</p>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.end_run">
+<code class="sig-name descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.end_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the end of the experiment run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.log_artifact">
+<code class="sig-name descname">log_artifact</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_path</span></em>, <em class="sig-param"><span class="n">folder_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.log_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log an artifact (e.g., a model).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.log_metrics">
+<code class="sig-name descname">log_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.log_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.log_params">
+<code class="sig-name descname">log_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.log_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.log_params_exp_wide">
+<code class="sig-name descname">log_params_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.log_params_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.set_tags">
+<code class="sig-name descname">set_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.set_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.set_tags_exp_wide">
+<code class="sig-name descname">set_tags_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.set_tags_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.DummyRunLogger.start_run">
+<code class="sig-name descname">start_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.DummyRunLogger.start_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the beginning of the experiment run.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.logging.base.RunLogger">
+<em class="property">class </em><code class="sig-name descname">RunLogger</code><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class of the run_loggers used to record the experiment setup/records.</p>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.end_run">
+<em class="property">abstract </em><code class="sig-name descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.end_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the end of the experiment run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.get_tags">
+<em class="property">abstract </em><code class="sig-name descname">get_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.get_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the tag value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the key to access the tag value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.log_artifact">
+<em class="property">abstract </em><code class="sig-name descname">log_artifact</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_path</span></em>, <em class="sig-param"><span class="n">artifact_subdir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.log_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record an artifact (e.g., a model) that is already saved at the specified path.
+The behavior may differ among different run loggers.
+For example, this method may retrieve the data in <code class="docutils literal notranslate"><span class="pre">_path</span></code> and save it to another location under the sub-directory <code class="docutils literal notranslate"><span class="pre">artifact_dir</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – the path where the artifact has been saved.</p></li>
+<li><p><strong>artifact_subdir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – a string to specify under what sub-directory names the artifact should be stored in the database, remote storage, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.log_metrics">
+<em class="property">abstract </em><code class="sig-name descname">log_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.log_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – the dictionary containing the values to be recorded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.log_params">
+<em class="property">abstract </em><code class="sig-name descname">log_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.log_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.log_params_exp_wide">
+<em class="property">abstract </em><code class="sig-name descname">log_params_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.log_params_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.set_tags">
+<em class="property">abstract </em><code class="sig-name descname">set_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.set_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.set_tags_exp_wide">
+<em class="property">abstract </em><code class="sig-name descname">set_tags_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.set_tags_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.base.RunLogger.start_run">
+<em class="property">abstract </em><code class="sig-name descname">start_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.base.RunLogger.start_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the beginning of the experiment run.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.api_support.logging.model_logger">
+<span id="causal-da-api-support-logging-model-logger"></span><h2>causal_da.api_support.logging.model_logger<a class="headerlink" href="#module-causal_da.api_support.logging.model_logger" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelLogger">
+<em class="property">class </em><code class="sig-name descname">MLFlowModelLogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">db_key</span></em>, <em class="sig-param"><span class="n">run_logger</span></em>, <em class="sig-param"><span class="n">compress_format</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.logging.model_logger.MLFlowModelSaver" title="causal_da.api_support.logging.model_logger.MLFlowModelSaver"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.logging.model_logger.MLFlowModelSaver</span></code></a></p>
+<p>The model saver class using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch</span></code>.
+This is more handy than <code class="docutils literal notranslate"><span class="pre">MLFlowMultiModelLogger</span></code> when we only save the model once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the path where the model should be saved.</p></li>
+<li><p><strong>db_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the database key to save the model path.</p></li>
+<li><p><strong>run_logger</strong> (<a class="reference internal" href="#causal_da.api_support.logging.base.RunLogger" title="causal_da.api_support.logging.base.RunLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RunLogger</span></code></a>) – the logger to save the experiment information.</p></li>
+<li><p><strong>compress_format</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – the format of compression (<code class="docutils literal notranslate"><span class="pre">None</span></code>: default <code class="docutils literal notranslate"><span class="pre">'zip'</span></code> is used. Other options are <code class="docutils literal notranslate"><span class="pre">('zip',</span> <span class="pre">'tar',</span> <span class="pre">'gztar',</span> <span class="pre">'bztar',</span> <span class="pre">'xztar')</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelLogger.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelLogger.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the model using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch.load_model</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelLogger.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelLogger.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch.save_model</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> – the <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> model to be saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelSaver">
+<em class="property">class </em><code class="sig-name descname">MLFlowModelSaver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class of the model saver classes using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the path at which the model should be stored.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelSaver.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelSaver.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the model using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch.load_model</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelSaver.load_zip">
+<em class="property">classmethod </em><code class="sig-name descname">load_zip</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zip_path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelSaver.load_zip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility class method to load a zipped model using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch.load_model</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zip_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – path to the zipped model.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowModelSaver.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowModelSaver.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch.save_model</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> – the <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> model to be saved.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowMultiModelLogger">
+<em class="property">class </em><code class="sig-name descname">MLFlowMultiModelLogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">db_key</span></em>, <em class="sig-param"><span class="n">run_logger</span></em>, <em class="sig-param"><span class="n">compress_format</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowMultiModelLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.logging.model_logger.MLFlowModelSaver" title="causal_da.api_support.logging.model_logger.MLFlowModelSaver"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.logging.model_logger.MLFlowModelSaver</span></code></a></p>
+<p>The model saver class using <code class="docutils literal notranslate"><span class="pre">mlflow.pytorch</span></code>.
+This is more handy than <code class="docutils literal notranslate"><span class="pre">MLFlowModelLogger</span></code> when we save the intermediate models during a training loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the path where the model should be saved.</p></li>
+<li><p><strong>db_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the database key to save the model path.</p></li>
+<li><p><strong>run_logger</strong> (<a class="reference internal" href="#causal_da.api_support.logging.base.RunLogger" title="causal_da.api_support.logging.base.RunLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">RunLogger</span></code></a>) – the logger to save the experiment information.</p></li>
+<li><p><strong>compress_format</strong> – the format of compression (<code class="docutils literal notranslate"><span class="pre">None</span></code>: default <code class="docutils literal notranslate"><span class="pre">'zip'</span></code> is used. Other options are <code class="docutils literal notranslate"><span class="pre">('zip',</span> <span class="pre">'tar',</span> <span class="pre">'gztar',</span> <span class="pre">'bztar',</span> <span class="pre">'xztar')</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.model_logger.MLFlowMultiModelLogger.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.model_logger.MLFlowMultiModelLogger.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the intermediate model of a training epoch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – the model to be saved.</p></li>
+<li><p><strong>epoch</strong> – the epoch at which this method is called.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.api_support.logging.mongo_sacred">
+<span id="causal-da-api-support-logging-mongo-sacred"></span><h2>causal_da.api_support.logging.mongo_sacred<a class="headerlink" href="#module-causal_da.api_support.logging.mongo_sacred" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger">
+<em class="property">class </em><code class="sig-name descname">MongoAndSacredRunLogger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">experiment_name</span></em>, <em class="sig-param"><span class="n">observer</span></em>, <em class="sig-param"><span class="n">mongo_table</span></em>, <em class="sig-param"><span class="n">artifact_temp_dir</span><span class="o">=</span><span class="default_value">'sacred_artifact/1'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.logging.base.RunLogger" title="causal_da.api_support.logging.base.RunLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.logging.base.RunLogger</span></code></a></p>
+<p>A run logger based on MongoDB and Sacred.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>experiment_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the name of the experiment.</p></li>
+<li><p><strong>observer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">MongoObserver</span></code>) – the observer object.</p></li>
+<li><p><strong>mongo_table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Collection</span></code>) – the table object of PyMongo.</p></li>
+<li><p><strong>artifact_temp_dir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the path to the directory that can be used to store the artifacts temporarily.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.end_run">
+<code class="sig-name descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.end_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the end of the experiment run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.get_current_run_id">
+<code class="sig-name descname">get_current_run_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.get_current_run_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain the current Sacred run_id.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.get_tags">
+<code class="sig-name descname">get_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.get_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the tag value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the key to access the tag value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_artifact">
+<code class="sig-name descname">log_artifact</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_path</span></em>, <em class="sig-param"><span class="n">artifact_subdir</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record an artifact (e.g., a model) that is already saved at the specified path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]) – the path where the artifact has been saved.</p></li>
+<li><p><strong>artifact_subdir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – a string to specify under what sub-directory names the artifact should be stored in the database, remote storage, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_metrics">
+<code class="sig-name descname">log_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – the dictionary containing the values to be recorded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_params">
+<code class="sig-name descname">log_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_params_exp_wide">
+<code class="sig-name descname">log_params_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.log_params_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.perform_run">
+<code class="sig-name descname">perform_run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.perform_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The method to perform an experiment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – a function of two variables: <code class="docutils literal notranslate"><span class="pre">(idx,</span> <span class="pre">params)</span></code>.
+<code class="docutils literal notranslate"><span class="pre">idx</span></code> is a string indicating the unique identifier of the experiment run
+that can be used in the function, e.g., to save artifacts with names that are distinct among different runs.</p></li>
+<li><p><strong>params</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – the parameters to be passed to <code class="docutils literal notranslate"><span class="pre">func</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here, we capsule the experiment starting procedure of Sacred for the convenience of the user.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.set_tags">
+<code class="sig-name descname">set_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.set_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the tags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.set_tags_exp_wide">
+<code class="sig-name descname">set_tags_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.set_tags_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.start_run">
+<code class="sig-name descname">start_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.start_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the beginning of the experiment run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.update_mongo">
+<code class="sig-name descname">update_mongo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.MongoAndSacredRunLogger.update_mongo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a dictionary to the MongoDB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dic</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – dictionary containing the key-value pairs to be updated.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="causal_da.api_support.logging.mongo_sacred.sanitize_data">
+<code class="sig-name descname">sanitize_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">r</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.mongo_sacred.sanitize_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sanitize the data values to cast to the types that can be handled by MongoDB (via PyMongo).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.api_support.logging.param_history_manager">
+<span id="causal-da-api-support-logging-param-history-manager"></span><h2>causal_da.api_support.logging.param_history_manager<a class="headerlink" href="#module-causal_da.api_support.logging.param_history_manager" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.api_support.logging.param_history_manager.PandasParamHistoryManager">
+<em class="property">class </em><code class="sig-name descname">PandasParamHistoryManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.param_history_manager.PandasParamHistoryManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase" title="causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase</span></code></a></p>
+<p>The parameter history manager based on <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – the data frame containing the previous records of the parameters and the evaluation results.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.param_history_manager.PandasParamHistoryManager.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">param_grid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.param_history_manager.PandasParamHistoryManager.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PandasParamHistoryManager</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">param_grid</span><span class="p">)</span>
+<span class="go">[{&#39;a&#39;: 21, &#39;b&#39;: 22, &#39;c&#39;: 10}]</span>
+</pre></div>
+</div>
+<p># Considers the parameter to be existent even if the candidate contains only a subset of the values.
+# This assumes that no removal of the keys occurs along the development of the method.
+&gt;&gt;&gt; PandasParamHistoryManager(df).filter([{‘a’: 11, ‘b’: 12}])
+[]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase">
+<em class="property">class </em><code class="sig-name descname">ParamHistoryManagerBase</code><a class="headerlink" href="#causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class of a parameter history manager.</p>
+<dl class="py method">
+<dt id="causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase.filter">
+<em class="property">abstract </em><code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">param_grid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.api_support.logging.param_history_manager.ParamHistoryManagerBase.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a set of candidate parameter sets, this function removes all existing sets
+and leaves the parameter set that is unexistent in the database of the previous runs.
+The set of keys appearing in its database needs to be a superset of the keys apperaing in the parameter candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-causal_da.api_support.logging"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.api_support.validator.html" class="btn btn-neutral float-right" title="causal_da.api_support.validator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_da.api_support.html" class="btn btn-neutral float-left" title="causal_da.api_support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

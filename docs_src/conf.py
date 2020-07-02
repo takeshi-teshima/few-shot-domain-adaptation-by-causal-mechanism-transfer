@@ -41,6 +41,7 @@ extensions = [
     'sphinx.ext.napoleon',  # napoleon needs to be loaded before autodoc_typehints. See https://pypi.org/project/sphinx-autodoc-typehints/ .
     'sphinx_autodoc_typehints',
     'sphinx.ext.mathjax',
+    'sphinx.ext.githubpages',
     'sphinx.ext.doctest',
 ]
 

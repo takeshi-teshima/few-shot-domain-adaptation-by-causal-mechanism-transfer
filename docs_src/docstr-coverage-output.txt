@@ -1,0 +1,102 @@
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/ICML2020_api.py"
+ Needed: 13; Found: 13; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/algorithm/api.py"
+ Needed: 4; Found: 4; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/algorithm/ica_augmenter.py"
+ Needed: 16; Found: 16; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/assessment_base.py"
+ Needed: 4; Found: 4; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/evaluator.py"
+ Needed: 17; Found: 17; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/evaluator_runner.py"
+ Needed: 6; Found: 6; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/index_class_label.py"
+ Needed: 2; Found: 2; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/logging/base.py"
+ Needed: 21; Found: 21; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/logging/model_logger.py"
+ Needed: 14; Found: 14; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/logging/mongo_sacred.py"
+ Needed: 17; Found: 17; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/logging/param_history_manager.py"
+ Needed: 7; Found: 7; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/validator/base.py"
+ Needed: 7; Found: 7; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/validator/performance.py"
+ Needed: 4; Found: 4; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/validator/scores.py"
+ Needed: 5; Found: 5; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/api_support/validator/timer.py"
+ Needed: 11; Found: 11; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/aug_predictor/aug_krr.py"
+ Needed: 3; Found: 3; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/aug_predictor/base.py"
+ Needed: 4; Found: 4; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/aug_predictor/partial_loo_krr.py"
+ Needed: 11; Found: 11; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/aug_predictor/util.py"
+ Needed: 11; Found: 11; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/ica_torch/GCL_nonlinear_ica_train.py"
+ Needed: 10; Found: 10; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/ica_torch/api.py"
+ Needed: 6; Found: 6; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/ica_torch/gcl_model.py"
+ Needed: 18; Found: 18; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/ica_torch/logging_util.py"
+ Needed: 11; Found: 11; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/ica_torch/trainer_util.py"
+ Needed: 3; Found: 3; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/inn_torch/glow_nonexponential.py"
+ Needed: 10; Found: 10; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/inn_torch/layers/actnorm.py"
+ Needed: 7; Found: 7; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/inn_torch/layers/affine_coupling_layer.py"
+ Needed: 13; Found: 13; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/inn_torch/layers/invertible_linear.py"
+ Needed: 5; Found: 5; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/components/inn_torch/wrappers/sequential_flow.py"
+ Needed: 5; Found: 5; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/contrib/evaluators.py"
+ Needed: 11; Found: 11; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/contrib/evaluators_support/aug_info_assessment.py"
+ Needed: 3; Found: 3; Missing: 0; Coverage: 100.0%
+
+File: "/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/causal_da/contrib/evaluators_support/aug_krr_assessment.py"
+ Needed: 3; Found: 3; Missing: 0; Coverage: 100.0%
+
+
+Overall statistics for 32 files (skipped all non-init magic methods) (skipped file-level docstrings):
+Needed: 282  -  Found: 282  -  Missing: 0
+Total coverage: 100.0%  -  Grade: AMAZING! Your docstrings are truly a wonder to behold!
+Docstring coverage badge saved to '/home/teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/docs_src/coverage_badge.svg'

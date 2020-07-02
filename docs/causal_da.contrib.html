@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.contrib &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.contrib.evaluators_support" href="causal_da.contrib.evaluators_support.html" />
+    <link rel="prev" title="causal_da.components.inn_torch.wrappers" href="causal_da.components.inn_torch.wrappers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">causal_da.contrib</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-causal_da.contrib.evaluators">causal_da.contrib.evaluators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+      <li>causal_da.contrib</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.contrib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-contrib">
+<h1>causal_da.contrib<a class="headerlink" href="#causal-da-contrib" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.contrib.evaluators">
+<span id="causal-da-contrib-evaluators"></span><h2>causal_da.contrib.evaluators<a class="headerlink" href="#module-causal_da.contrib.evaluators" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.contrib.evaluators.AugmentingMultiAssessmentEvaluator">
+<em class="property">class </em><code class="sig-name descname">AugmentingMultiAssessmentEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_tr</span></em>, <em class="sig-param"><span class="n">y_tr</span></em>, <em class="sig-param"><span class="n">x_te</span></em>, <em class="sig-param"><span class="n">y_te</span></em>, <em class="sig-param"><span class="n">metrics</span></em>, <em class="sig-param"><span class="n">augment_size</span></em>, <em class="sig-param"><span class="n">namespace</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators.AugmentingMultiAssessmentEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.evaluator.AugmenterEvaluatorBase" title="causal_da.api_support.evaluator.AugmenterEvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.evaluator.AugmenterEvaluatorBase</span></code></a></p>
+<p>Evaluate an augmenter by running it once on a data and probing multiple assessment metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_tr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – target domain training data predictor variables (shape <code class="docutils literal notranslate"><span class="pre">(n_train,</span> <span class="pre">n_dim)</span></code>).</p></li>
+<li><p><strong>y_tr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – target domain training data predicted variables (shape <code class="docutils literal notranslate"><span class="pre">(n_train,</span> <span class="pre">1)</span></code>).</p></li>
+<li><p><strong>x_te</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – target domain test data predictor variables (shape <code class="docutils literal notranslate"><span class="pre">(n_test,</span> <span class="pre">n_dim)</span></code>).</p></li>
+<li><p><strong>y_te</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – target domain test data predicted variables (shape <code class="docutils literal notranslate"><span class="pre">(n_test,</span> <span class="pre">1)</span></code>).</p></li>
+<li><p><strong>metrics</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.assessment_base.AugAssessmentBase" title="causal_da.api_support.assessment_base.AugAssessmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AugAssessmentBase</span></code></a>]) – the metrics to assess the augmenter.</p></li>
+<li><p><strong>augment_size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – the desired size of the augmentation used for the assessment.</p></li>
+<li><p><strong>namespace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the namespace of the metric to be prepended.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results of the assessments.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.contrib.evaluators.AugmentingMultiAssessmentEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators.AugmentingMultiAssessmentEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>augmenter</strong> – the augmenter.</p></li>
+<li><p><strong>epoch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.contrib.evaluators.ModelSavingEvaluator">
+<em class="property">class </em><code class="sig-name descname">ModelSavingEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">run_logger</span></em>, <em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">db_key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators.ModelSavingEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.evaluator.AugmenterEvaluatorBase" title="causal_da.api_support.evaluator.AugmenterEvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.evaluator.AugmenterEvaluatorBase</span></code></a></p>
+<p>The utility class to save the augmenter into a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_logger</strong> – the logger to save the results of the assessments.</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the path where the saved model should appear.</p></li>
+<li><p><strong>db_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the database key for which the saved model path should be recorded.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.contrib.evaluators.ModelSavingEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators.ModelSavingEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>augmenter</strong> – the augmenter.</p></li>
+<li><p><strong>epoch</strong> – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.contrib.evaluators.TargetDomainsAverageEvaluator">
+<em class="property">class </em><code class="sig-name descname">TargetDomainsAverageEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tar_tr</span></em>, <em class="sig-param"><span class="n">tar_te</span></em>, <em class="sig-param"><span class="n">assessments</span></em>, <em class="sig-param"><span class="n">namespace</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators.TargetDomainsAverageEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.evaluator.AugmenterEvaluatorBase" title="causal_da.api_support.evaluator.AugmenterEvaluatorBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.evaluator.AugmenterEvaluatorBase</span></code></a></p>
+<p>Evaluate the augmenter by performing the assessment on multiple domains and taking the average.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tar_tr</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – tuple of target domain training data containing <code class="docutils literal notranslate"><span class="pre">(x_tr,</span> <span class="pre">y_tr,</span> <span class="pre">c_tr)</span></code>.</p></li>
+<li><p><strong>tar_te</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – tuple of target domain testing data containing <code class="docutils literal notranslate"><span class="pre">(x_te,</span> <span class="pre">y_te,</span> <span class="pre">c_te)</span></code>.</p></li>
+<li><p><strong>assessments</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.assessment_base.StandardAssessmentBase" title="causal_da.api_support.assessment_base.StandardAssessmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardAssessmentBase</span></code></a>]) – the assessment objects to assess the augmenter.</p></li>
+<li><p><strong>metrics</strong> – the metrics to assess the augmenter.</p></li>
+<li><p><strong>namespace</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the namespace of the metric to be prepended.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results of the assessments.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">c_tr</span></code> and <code class="docutils literal notranslate"><span class="pre">c_te</span></code> are the indicators of the domain indices (this class averages the performance on multiple domains).</p>
+</div>
+<dl class="py method">
+<dt id="causal_da.contrib.evaluators.TargetDomainsAverageEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators.TargetDomainsAverageEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the evaluation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>augmenter</strong> – the augmenter.</p></li>
+<li><p><strong>epoch</strong> – the epoch when this evaluation is run in the training loop (<code class="docutils literal notranslate"><span class="pre">None</span></code> if outside a training loop).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<p><span class="raw-html"><br /></span>
+<span class="raw-html"><h2>Module contents</h2></span></p>
+<span class="target" id="module-causal_da.contrib"></span><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.contrib.evaluators_support.html">causal_da.contrib.evaluators_support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_info_assessment">causal_da.contrib.evaluators_support.aug_info_assessment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_krr_assessment">causal_da.contrib.evaluators_support.aug_krr_assessment</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.contrib.evaluators_support.html" class="btn btn-neutral float-right" title="causal_da.contrib.evaluators_support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_da.components.inn_torch.wrappers.html" class="btn btn-neutral float-left" title="causal_da.components.inn_torch.wrappers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+causal\_da.api\_support.validator
+=================================
+
+
+
+
+causal\_da.api\_support.validator.base
+--------------------------------------
+
+.. automodule:: causal_da.api_support.validator.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.api\_support.validator.performance
+---------------------------------------------
+
+.. automodule:: causal_da.api_support.validator.performance
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.api\_support.validator.scores
+----------------------------------------
+
+.. automodule:: causal_da.api_support.validator.scores
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.api\_support.validator.timer
+---------------------------------------
+
+.. automodule:: causal_da.api_support.validator.timer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+.. automodule:: causal_da.api_support.validator
+   :members:
+   :undoc-members:
+   :show-inheritance:

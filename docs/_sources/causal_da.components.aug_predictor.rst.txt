@@ -1,0 +1,51 @@
+
+causal\_da.components.aug\_predictor
+====================================
+
+
+
+
+causal\_da.components.aug\_predictor.aug\_krr
+---------------------------------------------
+
+.. automodule:: causal_da.components.aug_predictor.aug_krr
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.components.aug\_predictor.base
+-----------------------------------------
+
+.. automodule:: causal_da.components.aug_predictor.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.components.aug\_predictor.partial\_loo\_krr
+------------------------------------------------------
+
+.. automodule:: causal_da.components.aug_predictor.partial_loo_krr
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.components.aug\_predictor.util
+-----------------------------------------
+
+.. automodule:: causal_da.components.aug_predictor.util
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+.. automodule:: causal_da.components.aug_predictor
+   :members:
+   :undoc-members:
+   :show-inheritance:
