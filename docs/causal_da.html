@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.algorithm" href="causal_da.algorithm.html" />
+    <link rel="prev" title="Welcome to Causal DA’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">causal_da</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>causal_da</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da">
+<h1>causal_da<a class="headerlink" href="#causal-da" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.ICML2020_api">
+<span id="causal-da-icml2020-api"></span><h2>causal_da.ICML2020_api<a class="headerlink" href="#module-causal_da.ICML2020_api" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.ICML2020_api.CausalMechanismTransferICML2020API">
+<em class="property">class </em><code class="sig-name descname">CausalMechanismTransferICML2020API</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">run_logger</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">param_history_manager</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.ICML2020_api.CausalMechanismTransferICML2020API" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The main interface class for the experiments. Based on the following combination of components:</p>
+<ul>
+<li><p>Hyper-paramter search: grid-search.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>HP selection is assumed to be performed by recording the validation scores for all runs in MongoDB and comparing the scores later.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Experiment recording: Sacred + MongoDB.</p></li>
+<li><p>Model recording: MLFlow.</p></li>
+<li><p>ICA</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>training: GCL (out-of-the-box).</p></li>
+<li><p>Invertible neural network: Glow-based (without exponential activation).</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Predictor</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Kernel ridge regression (RBF kernel)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Construct the method object.</p>
+<dl class="py method">
+<dt id="causal_da.ICML2020_api.CausalMechanismTransferICML2020API.run_method_and_eval">
+<code class="sig-name descname">run_method_and_eval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_src</span></em>, <em class="sig-param"><span class="n">Y_src</span></em>, <em class="sig-param"><span class="n">c_src</span></em>, <em class="sig-param"><span class="n">cfg_method</span></em>, <em class="sig-param"><span class="n">parallel_split_index</span></em>, <em class="sig-param"><span class="n">total_parallel_split</span></em>, <em class="sig-param"><span class="n">save_model_path</span></em>, <em class="sig-param"><span class="n">ica_intermediate_evaluators</span></em>, <em class="sig-param"><span class="n">augmenter_evaluators</span></em>, <em class="sig-param"><span class="n">train_params</span><span class="o">=</span><span class="default_value">{'batch_size': 32, 'device': 'cpu', 'epochs': 500}</span></em>, <em class="sig-param"><span class="n">debug</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.ICML2020_api.CausalMechanismTransferICML2020API.run_method_and_eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main interface.
+Runs through all the hyper-paramter candidates except those for which we have a previous run record.
+Designed for training, probing the performance, and saving the results in a database that is connected to Sacred run database (via sacred’s <code class="docutils literal notranslate"><span class="pre">run_id</span></code>), for all hyper-parameter combinations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_src</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) – Source domain input data (shape <code class="docutils literal notranslate"><span class="pre">(n_data,</span> <span class="pre">n_dim)</span></code>).</p></li>
+<li><p><strong>Y_src</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) – Source domain predicted variable data (shape <code class="docutils literal notranslate"><span class="pre">(n_data,</span> <span class="pre">1)</span></code>).</p></li>
+<li><p><strong>c_src</strong> (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) – Source domain index (shape <code class="docutils literal notranslate"><span class="pre">(n_data,)</span></code>).</p></li>
+<li><p><strong>cfg_method</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – The keys should contain <code class="docutils literal notranslate"><span class="pre">('base_param',</span> <span class="pre">'model_param')</span></code>.
+Each entry (inside each of these keys) should be lists.
+The hyper-parameter grid will be generated by taking the products of these lists.</p></li>
+<li><p><strong>parallel_split_index</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Used in <code class="docutils literal notranslate"><span class="pre">_split_and_filter_hyperparam_candidates()</span></code> to enable brute-force parallelization.</p></li>
+<li><p><strong>total_parallel_split</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Used in <code class="docutils literal notranslate"><span class="pre">_split_and_filter_hyperparam_candidates()</span></code> to enable brute-force parallelization.</p></li>
+<li><p><strong>save_model_path</strong> (<code class="docutils literal notranslate"><span class="pre">pathlib.Path</span></code>) – The base path used for saving the augmenter model
+(this is used only as a base path and the experiment run ID will be appended).</p></li>
+<li><p><strong>ica_intermediate_evaluators</strong> (<code class="docutils literal notranslate"><span class="pre">EvaluatorRunner</span></code>) – An evaluator runner used during the ICA training loop.</p></li>
+<li><p><strong>augmenter_evaluators</strong> (<code class="docutils literal notranslate"><span class="pre">List[AugmenterEvaluatorBase]</span></code>) – A list of evaluators that depend on the augmenter and are run during the ICA training loop.</p></li>
+<li><p><strong>train_params</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – <p>Contains <code class="docutils literal notranslate"><span class="pre">(epochs,</span> <span class="pre">batch_size,</span> <span class="pre">device)</span></code> as the keys.
+Keys:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">device</span></code> : The device specification (e.g., <code class="docutils literal notranslate"><span class="pre">'gpu'</span></code>) for training in PyTorch.</p></li>
+</ul>
+</p></li>
+<li><p><strong>debug</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – Debug mode (default <code class="docutils literal notranslate"><span class="pre">False</span></code>). If false, exceptions are not caught during the loop.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<p><span class="raw-html"><br /></span>
+<span class="raw-html"><h2>Module contents</h2></span></p>
+<span class="target" id="module-causal_da"></span><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.algorithm.html#module-causal_da.algorithm.api">causal_da.algorithm.api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.algorithm.html#module-causal_da.algorithm.ica_augmenter">causal_da.algorithm.ica_augmenter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.assessment_base">causal_da.api_support.assessment_base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.evaluator">causal_da.api_support.evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.evaluator_runner">causal_da.api_support.evaluator_runner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.api_support.html#module-causal_da.api_support.index_class_label">causal_da.api_support.index_class_label</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.logging.html">causal_da.api_support.logging</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.base">causal_da.api_support.logging.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.model_logger">causal_da.api_support.logging.model_logger</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.mongo_sacred">causal_da.api_support.logging.mongo_sacred</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.logging.html#module-causal_da.api_support.logging.param_history_manager">causal_da.api_support.logging.param_history_manager</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.validator.html">causal_da.api_support.validator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.base">causal_da.api_support.validator.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.performance">causal_da.api_support.validator.performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.scores">causal_da.api_support.validator.scores</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.api_support.validator.html#module-causal_da.api_support.validator.timer">causal_da.api_support.validator.timer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.components.html">causal_da.components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.components.aug_predictor.html">causal_da.components.aug_predictor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.aug_krr">causal_da.components.aug_predictor.aug_krr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.base">causal_da.components.aug_predictor.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.partial_loo_krr">causal_da.components.aug_predictor.partial_loo_krr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.aug_predictor.html#module-causal_da.components.aug_predictor.util">causal_da.components.aug_predictor.util</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.components.ica_torch.html">causal_da.components.ica_torch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.GCL_nonlinear_ica_train">causal_da.components.ica_torch.GCL_nonlinear_ica_train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.api">causal_da.components.ica_torch.api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.gcl_model">causal_da.components.ica_torch.gcl_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.logging_util">causal_da.components.ica_torch.logging_util</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.ica_torch.html#module-causal_da.components.ica_torch.trainer_util">causal_da.components.ica_torch.trainer_util</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.components.inn_torch.html">causal_da.components.inn_torch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.inn_torch.html#module-causal_da.components.inn_torch.glow_nonexponential">causal_da.components.inn_torch.glow_nonexponential</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.layers.html">causal_da.components.inn_torch.layers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.wrappers.html">causal_da.components.inn_torch.wrappers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="causal_da.contrib.html#module-causal_da.contrib.evaluators">causal_da.contrib.evaluators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.evaluators_support.html">causal_da.contrib.evaluators_support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_info_assessment">causal_da.contrib.evaluators_support.aug_info_assessment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.contrib.evaluators_support.html#module-causal_da.contrib.evaluators_support.aug_krr_assessment">causal_da.contrib.evaluators_support.aug_krr_assessment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.algorithm.html" class="btn btn-neutral float-right" title="causal_da.algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Causal DA’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

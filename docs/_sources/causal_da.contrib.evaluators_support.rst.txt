@@ -1,0 +1,33 @@
+
+causal\_da.contrib.evaluators\_support
+======================================
+
+
+
+
+causal\_da.contrib.evaluators\_support.aug\_info\_assessment
+------------------------------------------------------------
+
+.. automodule:: causal_da.contrib.evaluators_support.aug_info_assessment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.contrib.evaluators\_support.aug\_krr\_assessment
+-----------------------------------------------------------
+
+.. automodule:: causal_da.contrib.evaluators_support.aug_krr_assessment
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+.. automodule:: causal_da.contrib.evaluators_support
+   :members:
+   :undoc-members:
+   :show-inheritance:

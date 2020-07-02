@@ -1,0 +1,21 @@
+defaults:
+  - data: gasoline
+  - method: causal_da
+  - database
+
+debug: False
+
+recording:
+  table: icml2020
+  save_model_path: "outputs/saved_models"
+  recording_set: icml2020
+  log_interval: 20
+  sacred_artifact_dir: "outputs/sacred_artifact"
+  data_cache_base_path: 'pickle/data'
+
+parallelization:
+  data_run_id: 'JAPAN_1'
+
+misc:
+  max_threads: '-1'
+  gpu: False

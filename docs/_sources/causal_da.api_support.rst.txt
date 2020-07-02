@@ -1,0 +1,62 @@
+
+causal\_da.api\_support
+=======================
+
+
+
+
+causal\_da.api\_support.assessment\_base
+----------------------------------------
+
+.. automodule:: causal_da.api_support.assessment_base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.api\_support.evaluator
+---------------------------------
+
+.. automodule:: causal_da.api_support.evaluator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.api\_support.evaluator\_runner
+-----------------------------------------
+
+.. automodule:: causal_da.api_support.evaluator_runner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+causal\_da.api\_support.index\_class\_label
+-------------------------------------------
+
+.. automodule:: causal_da.api_support.index_class_label
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+
+:raw-html:`<br />`
+:raw-html:`<h2>Module contents</h2>`
+
+
+.. automodule:: causal_da.api_support
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. toctree::
+   :maxdepth: 4
+
+   causal_da.api_support.logging
+   causal_da.api_support.validator

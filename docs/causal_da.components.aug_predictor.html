@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.components.aug_predictor &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.components.ica_torch" href="causal_da.components.ica_torch.html" />
+    <link rel="prev" title="causal_da.components" href="causal_da.components.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="causal_da.components.html">causal_da.components</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">causal_da.components.aug_predictor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html">causal_da.components.ica_torch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.html">causal_da.components.inn_torch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+          <li><a href="causal_da.components.html">causal_da.components</a> &raquo;</li>
+        
+      <li>causal_da.components.aug_predictor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.components.aug_predictor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-components-aug-predictor">
+<h1>causal_da.components.aug_predictor<a class="headerlink" href="#causal-da-components-aug-predictor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.components.aug_predictor.aug_krr">
+<span id="causal-da-components-aug-predictor-aug-krr"></span><h2>causal_da.components.aug_predictor.aug_krr<a class="headerlink" href="#module-causal_da.components.aug_predictor.aug_krr" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.aug_predictor.aug_krr.AugKRR">
+<em class="property">class </em><code class="sig-name descname">AugKRR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">alphas</span><span class="o">=</span><span class="default_value">[0.0009765625, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0, 128.0, 256.0, 512.0, 1024.0]</span></em>, <em class="sig-param"><span class="n">gammas</span><span class="o">=</span><span class="default_value">[None]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.aug_krr.AugKRR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR" title="causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR</span></code></a></p>
+<p>The kernel ridge regression predictor that can
+be trained on the pseudo-data generated by an augmenter.
+It performs an analytic-form leave-one-out cross-validation (LOOCV) only on the original data
+to select the kernel bandwidth and the regularization coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alphas</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – the Iterable of regularization coefficient candidates.</p></li>
+<li><p><strong>gammas</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="docutils literal notranslate"><span class="pre">None</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – the Iterable of kernel bandwidth candidates.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If gammas == [None], median heuristic is used.</p>
+</div>
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.aug_krr.AugKRR.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">augment_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.aug_krr.AugKRR.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – input data of shape <code class="docutils literal notranslate"><span class="pre">(n_data,</span> <span class="pre">dim)</span></code>.</p></li>
+<li><p><strong>y</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – predicted data of shape <code class="docutils literal notranslate"><span class="pre">(n_data,</span> <span class="pre">1)</span></code>.</p></li>
+<li><p><strong>augmenter</strong> (<a class="reference internal" href="causal_da.algorithm.html#causal_da.algorithm.ica_augmenter.ICATransferAugmenter" title="causal_da.algorithm.ica_augmenter.ICATransferAugmenter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ICATransferAugmenter</span></code></a>) – a data augmenter.</p></li>
+<li><p><strong>augment_size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the augmentation size (passed to <code class="docutils literal notranslate"><span class="pre">augmenter</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.aug_predictor.base">
+<span id="causal-da-components-aug-predictor-base"></span><h2>causal_da.components.aug_predictor.base<a class="headerlink" href="#module-causal_da.components.aug_predictor.base" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.aug_predictor.base.AugPredictorBase">
+<em class="property">class </em><code class="sig-name descname">AugPredictorBase</code><a class="headerlink" href="#causal_da.components.aug_predictor.base.AugPredictorBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The base class to express the predictor that
+takes an augmenter and performs training using it.</p>
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.base.AugPredictorBase.fit">
+<em class="property">abstract </em><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_train</span></em>, <em class="sig-param"><span class="n">y_train</span></em>, <em class="sig-param"><span class="n">augmenter</span></em>, <em class="sig-param"><span class="n">augment_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.base.AugPredictorBase.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the predictor (including hyper-parameter selection).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_train</strong> – the training predictor variable data.</p></li>
+<li><p><strong>y_train</strong> – the training predicted variable data.</p></li>
+<li><p><strong>augmenter</strong> – the augmenter.</p></li>
+<li><p><strong>augment_size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – the desired maximum size of the augmentation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.base.AugPredictorBase.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.base.AugPredictorBase.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> – input data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.aug_predictor.partial_loo_krr">
+<span id="causal-da-components-aug-predictor-partial-loo-krr"></span><h2>causal_da.components.aug_predictor.partial_loo_krr<a class="headerlink" href="#module-causal_da.components.aug_predictor.partial_loo_krr" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR">
+<em class="property">class </em><code class="sig-name descname">PartialLOOCVKRR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">alphas</span><span class="o">=</span><span class="default_value">[0.0009765625, 0.001953125, 0.00390625, 0.0078125, 0.015625, 0.03125, 0.0625, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0, 128.0, 256.0, 512.0, 1024.0]</span></em>, <em class="sig-param"><span class="n">gammas</span><span class="o">=</span><span class="default_value">[None]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Kernel ridge regression predictor with the analytic-form leave-one-out cross-validation (LOOCV).
+The LOOCV is performed only on part of the training data
+while the training is performed on the whole generated data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alphas</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – the Iterable of regularization coefficient candidates.</p></li>
+<li><p><strong>gammas</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="docutils literal notranslate"><span class="pre">None</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]]) – the Iterable of kernel bandwidth candidates.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If gammas == [None], median heuristic is used.</p>
+</div>
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">aux_x</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">aux_y</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_weight</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the predictor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – the predictor variables in the original data.</p></li>
+<li><p><strong>y</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – the predicted variable in the original data.</p></li>
+<li><p><strong>aux_x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – the predictor variables in the augmented data.</p></li>
+<li><p><strong>aux_y</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – the predicted variable in the augmented data.</p></li>
+<li><p><strong>sample_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – sample weight array.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.get_heuristic_gamma">
+<code class="sig-name descname">get_heuristic_gamma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.get_heuristic_gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the median heuristic used to select the kernel bandwidth.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – the input data of shape <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">n_dim)</span></code> to compute the median from.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.get_selected_params">
+<code class="sig-name descname">get_selected_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.get_selected_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the hyper-parameters selected by the LOOCV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.partial_loo_krr.PartialLOOCVKRR.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a prediction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – input data (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">n_dim)</span></code>).</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="causal_da.components.aug_predictor.partial_loo_krr.median_heuristic">
+<code class="sig-name descname">median_heuristic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.partial_loo_krr.median_heuristic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the median heuristic for those kernels
+which depend on the Euclidean distances among the input points
+(mainly for the RBF kernel = the Gaussian kernel).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – input data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.aug_predictor.util">
+<span id="causal-da-components-aug-predictor-util"></span><h2>causal_da.components.aug_predictor.util<a class="headerlink" href="#module-causal_da.components.aug_predictor.util" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.aug_predictor.util.Timer">
+<em class="property">class </em><code class="sig-name descname">Timer</code><a class="headerlink" href="#causal_da.components.aug_predictor.util.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The timer class. It can be used as a decorator by <code class="docutils literal notranslate"><span class="pre">set()</span></code>.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@Timer</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[Timer] The method took:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>            <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>                <span class="k">return</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="causal_da.components.aug_predictor.util.Timer.set">
+<em class="property">classmethod </em><code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.aug_predictor.util.Timer.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility to decorate functions.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-causal_da.components.aug_predictor"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.components.ica_torch.html" class="btn btn-neutral float-right" title="causal_da.components.ica_torch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_da.components.html" class="btn btn-neutral float-left" title="causal_da.components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

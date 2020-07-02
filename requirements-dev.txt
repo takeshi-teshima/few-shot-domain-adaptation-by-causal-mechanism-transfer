@@ -1,0 +1,8 @@
+# Documentation
+sphinx
+sphinx_rtd_theme
+sphinx-autodoc-typehints
+git+https://github.com/HunterMcGushion/docstr_coverage.git
+
+# Debug
+pudb

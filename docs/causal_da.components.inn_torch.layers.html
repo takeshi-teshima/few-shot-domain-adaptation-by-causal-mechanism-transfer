@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.components.inn_torch.layers &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.components.inn_torch.wrappers" href="causal_da.components.inn_torch.wrappers.html" />
+    <link rel="prev" title="causal_da.components.inn_torch" href="causal_da.components.inn_torch.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="causal_da.components.html">causal_da.components</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html">causal_da.components.aug_predictor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.ica_torch.html">causal_da.components.ica_torch</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="causal_da.components.inn_torch.html">causal_da.components.inn_torch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+          <li><a href="causal_da.components.html">causal_da.components</a> &raquo;</li>
+        
+          <li><a href="causal_da.components.inn_torch.html">causal_da.components.inn_torch</a> &raquo;</li>
+        
+      <li>causal_da.components.inn_torch.layers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.components.inn_torch.layers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-components-inn-torch-layers">
+<h1>causal_da.components.inn_torch.layers<a class="headerlink" href="#causal-da-components-inn-torch-layers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.components.inn_torch.layers.actnorm">
+<span id="causal-da-components-inn-torch-layers-actnorm"></span><h2>causal_da.components.inn_torch.layers.actnorm<a class="headerlink" href="#module-causal_da.components.inn_torch.layers.actnorm" title="Permalink to this headline">¶</a></h2>
+<p>Adopted from <a class="reference external" href="https://github.com/chaiyujin/glow-pytorch/blob/master/glow/modules.py">https://github.com/chaiyujin/glow-pytorch/blob/master/glow/modules.py</a> .</p>
+<dl class="py class">
+<dt id="causal_da.components.inn_torch.layers.actnorm.ActNorm">
+<em class="property">class </em><code class="sig-name descname">ActNorm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dim</span></em>, <em class="sig-param"><span class="n">scale</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.actnorm.ActNorm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>Activation Normalization.
+Initialize the bias and scale with a given mini batch
+so that the output per-channel have zero mean and unit variance for that.
+After initialization, <cite>bias</cite> and <cite>logs</cite> will be trained as parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – dimension of the input.</p></li>
+<li><p><strong>scale</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – a coefficient on the scaling parameter.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.actnorm.ActNorm.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.actnorm.ActNorm.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform forward propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.actnorm.ActNorm.initialize_parameters">
+<code class="sig-name descname">initialize_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.actnorm.ActNorm.initialize_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data-dependent initialization of the parameters.
+The parameters are treated as trainable parameters (independent of the data) after the initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.actnorm.ActNorm.inv">
+<code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.actnorm.ActNorm.inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the inverse computation in a batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.inn_torch.layers.affine_coupling_layer">
+<span id="causal-da-components-inn-torch-layers-affine-coupling-layer"></span><h2>causal_da.components.inn_torch.layers.affine_coupling_layer<a class="headerlink" href="#module-causal_da.components.inn_torch.layers.affine_coupling_layer" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.inn_torch.layers.affine_coupling_layer.AffineCouplingLayer">
+<em class="property">class </em><code class="sig-name descname">AffineCouplingLayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">net</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.affine_coupling_layer.AffineCouplingLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>The affine coupling layer (without dimension switching).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimension at which the input vector is split.</p></li>
+<li><p><strong>net</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – A neural network taking a tensor of <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">d)</span></code> as inputs and outputs a tuple of <code class="docutils literal notranslate"><span class="pre">numpy.ndarrays`</span> <span class="pre">of</span> <span class="pre">form:</span> <span class="pre">``tuple((n_sample,</span> <span class="pre">D</span> <span class="pre">-</span> <span class="pre">d),</span> <span class="pre">(n_sample,</span> <span class="pre">D</span> <span class="pre">-</span> <span class="pre">d))</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.affine_coupling_layer.AffineCouplingLayer.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.affine_coupling_layer.AffineCouplingLayer.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform forward propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.affine_coupling_layer.AffineCouplingLayer.inv">
+<code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.affine_coupling_layer.AffineCouplingLayer.inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform inverse computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.components.inn_torch.layers.affine_coupling_layer.NonexponentialAffineCouplingLayer">
+<em class="property">class </em><code class="sig-name descname">NonexponentialAffineCouplingLayer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">net</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.affine_coupling_layer.NonexponentialAffineCouplingLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>An affine coupling layer without the exponential activation function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Dimension at which the input vector is split.</p></li>
+<li><p><strong>net</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – A neural network taking a tensor of <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">d)</span></code> as inputs and outputs a tuple of <code class="docutils literal notranslate"><span class="pre">numpy.ndarrays`</span> <span class="pre">of</span> <span class="pre">form:</span> <span class="pre">``tuple((n_sample,</span> <span class="pre">D</span> <span class="pre">-</span> <span class="pre">d),</span> <span class="pre">(n_sample,</span> <span class="pre">D</span> <span class="pre">-</span> <span class="pre">d))</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.affine_coupling_layer.NonexponentialAffineCouplingLayer.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.affine_coupling_layer.NonexponentialAffineCouplingLayer.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform forward propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.affine_coupling_layer.NonexponentialAffineCouplingLayer.inv">
+<code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.affine_coupling_layer.NonexponentialAffineCouplingLayer.inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform inverse computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.inn_torch.layers.invertible_linear">
+<span id="causal-da-components-inn-torch-layers-invertible-linear"></span><h2>causal_da.components.inn_torch.layers.invertible_linear<a class="headerlink" href="#module-causal_da.components.inn_torch.layers.invertible_linear" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.inn_torch.layers.invertible_linear.InvertibleLinear">
+<em class="property">class </em><code class="sig-name descname">InvertibleLinear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dim</span></em>, <em class="sig-param"><span class="n">center</span><span class="o">=</span><span class="default_value">'identity'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.invertible_linear.InvertibleLinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>An invertible linear flow layer (i.e., the general linear group).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the input dimension.</p></li>
+<li><p><strong>center</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>]) – an offset to simplify the parametrization of the linear layer.
+* <code class="docutils literal notranslate"><span class="pre">'identity'</span></code>: the matrix is parametrized by a difference form the identity matrix.
+* <code class="docutils literal notranslate"><span class="pre">torch.FloatTensor</span></code>: the matrix is parametrized by a difference from <code class="docutils literal notranslate"><span class="pre">center</span></code>.
+* otherwise: the matrix is parametrized by a difference from <code class="docutils literal notranslate"><span class="pre">center</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.invertible_linear.InvertibleLinear.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.invertible_linear.InvertibleLinear.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform forward propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.inn_torch.layers.invertible_linear.InvertibleLinear.inv">
+<code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.inn_torch.layers.invertible_linear.InvertibleLinear.inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the inverse computation in a batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-causal_da.components.inn_torch.layers"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.components.inn_torch.wrappers.html" class="btn btn-neutral float-right" title="causal_da.components.inn_torch.wrappers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_da.components.inn_torch.html" class="btn btn-neutral float-left" title="causal_da.components.inn_torch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

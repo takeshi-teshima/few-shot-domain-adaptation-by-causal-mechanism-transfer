@@ -1,0 +1,24 @@
+
+causal\_da.components.inn\_torch.wrappers
+=========================================
+
+
+
+
+causal\_da.components.inn\_torch.wrappers.sequential\_flow
+----------------------------------------------------------
+
+.. automodule:: causal_da.components.inn_torch.wrappers.sequential_flow
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+
+.. role:: raw-html(raw)
+   :format: html
+.. automodule:: causal_da.components.inn_torch.wrappers
+   :members:
+   :undoc-members:
+   :show-inheritance:

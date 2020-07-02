@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.components.ica_torch &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="causal_da.components.inn_torch" href="causal_da.components.inn_torch.html" />
+    <link rel="prev" title="causal_da.components.aug_predictor" href="causal_da.components.aug_predictor.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="causal_da.components.html">causal_da.components</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.aug_predictor.html">causal_da.components.aug_predictor</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">causal_da.components.ica_torch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="causal_da.components.inn_torch.html">causal_da.components.inn_torch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+          <li><a href="causal_da.components.html">causal_da.components</a> &raquo;</li>
+        
+      <li>causal_da.components.ica_torch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.components.ica_torch.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-components-ica-torch">
+<h1>causal_da.components.ica_torch<a class="headerlink" href="#causal-da-components-ica-torch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.components.ica_torch.GCL_nonlinear_ica_train">
+<span id="causal-da-components-ica-torch-gcl-nonlinear-ica-train"></span><h2>causal_da.components.ica_torch.GCL_nonlinear_ica_train<a class="headerlink" href="#module-causal_da.components.ica_torch.GCL_nonlinear_ica_train" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCLTrainer">
+<em class="property">class </em><code class="sig-name descname">GCLTrainer</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">optimizer</em>, <em class="sig-param">contrastive_coeff=1.0</em>, <em class="sig-param">contrastive_loss=&lt;function binary_logistic_loss&gt;</em>, <em class="sig-param">balance=True</em>, <em class="sig-param">device='cpu'</em>, <em class="sig-param">run_logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCLTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Trainer class conforming to the interface of the <code class="docutils literal notranslate"><span class="pre">torch-ignite</span></code> package.</p>
+<p>Train a nonlinear ICA model by generalized contrastive learning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – the model to be trained.</p></li>
+<li><p><strong>optimizer</strong> – the optimizer.</p></li>
+<li><p><strong>contrastive_coeff</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The loss can be multiplied by this coefficient to improve numerical stability.</p></li>
+<li><p><strong>contrastive_loss</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>]) – the loss function used for contrastive training.</p></li>
+<li><p><strong>balance</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether to use a coefficient to stabilize the learning (the coefficient is initialized to normalize the loss to 1 in the first iteration).</p></li>
+<li><p><strong>device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – whether to use GPU for training.
+* <code class="docutils literal notranslate"><span class="pre">gpu_identifier</span></code>: use GPU with the identifier if available.
+* <code class="docutils literal notranslate"><span class="pre">'cpu'</span></code>: use CPU.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCLTrainer.compute_and_backward_loss">
+<code class="sig-name descname">compute_and_backward_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">trainer</span></em>, <em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCLTrainer.compute_and_backward_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute loss and prepare the back-propagation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainer</strong> – the trainer.</p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – the input data (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">n_dim)</span></code>).</p></li>
+<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – the auxiliary variables for GCL (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,)</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCLTrainer.log_training_loss">
+<code class="sig-name descname">log_training_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">trainer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCLTrainer.log_training_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record the training loss metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trainer</strong> – the trainer object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCL_nonlinear_ica_train">
+<code class="sig-name descname">GCL_nonlinear_ica_train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_tensor</span></em>, <em class="sig-param"><span class="n">c_src</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">max_epochs</span></em>, <em class="sig-param"><span class="n">gcl_ica_model</span></em>, <em class="sig-param"><span class="n">device</span></em>, <em class="sig-param"><span class="n">optimizer</span></em>, <em class="sig-param"><span class="n">epoch_callback</span></em>, <em class="sig-param"><span class="n">final_callback</span></em>, <em class="sig-param"><span class="n">run_logger</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.GCL_nonlinear_ica_train.GCL_nonlinear_ica_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform generalized contrastive learning (GCL) for nonlinear independent component analysis (nonlinear ICA).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_tensor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – the training data input variables (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,)</span></code>).</p></li>
+<li><p><strong>c_src</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – the auxiliary variable used as labels in the contrastive learning (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,)</span></code>).</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the batch size for training.</p></li>
+<li><p><strong>max_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the maximum number of epochs to run the training.</p></li>
+<li><p><strong>gcl_ica_model</strong> (<a class="reference internal" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel" title="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralizedContrastiveICAModel</span></code></a>) – the ICA model that can be trained via GCL.</p></li>
+<li><p><strong>device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the device identifier (<code class="docutils literal notranslate"><span class="pre">'cpu'</span></code>: use CPU).</p></li>
+<li><p><strong>optimizer</strong> – the <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> optimizer.</p></li>
+<li><p><strong>epoch_callback</strong> – The callback to be called after every epoch the training loop.</p></li>
+<li><p><strong>final_callback</strong> – The callback to be called at the end of the training loop.
+To be called with the single argument <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.ica_torch.api">
+<span id="causal-da-components-ica-torch-api"></span><h2>causal_da.components.ica_torch.api<a class="headerlink" href="#module-causal_da.components.ica_torch.api" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel">
+<em class="property">class </em><code class="sig-name descname">GCLTrainableInvertibleICAModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inn</span></em>, <em class="sig-param"><span class="n">dim</span></em>, <em class="sig-param"><span class="n">classifier_hidden_dim</span></em>, <em class="sig-param"><span class="n">n_label</span></em>, <em class="sig-param"><span class="n">classifier_n_layer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Example implementation of a invertible ICA model trainable by GCL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inn</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – invertible neural network model implemented by PyTorch.</p></li>
+<li><p><strong>dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – dimensionality of the data.</p></li>
+<li><p><strong>classifier_hidden_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the number of hidden units used to construct the classifier model in the wrapper class for training via GCL.</p></li>
+<li><p><strong>n_label</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the cardinality of the label candidates.</p></li>
+<li><p><strong>classifier_n_layer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the depth of the classifier wrapper class for GCL training.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel.get_invertible_ica_model">
+<code class="sig-name descname">get_invertible_ica_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel.get_invertible_ica_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility method to obtain the classifier (wrapper) model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel.set_train_params">
+<code class="sig-name descname">set_train_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lr</span></em>, <em class="sig-param"><span class="n">weight_decay</span></em>, <em class="sig-param"><span class="n">device</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">max_epochs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel.set_train_params" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – the learning rate.</p></li>
+<li><p><strong>weight_decay</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – the weight decay.</p></li>
+<li><p><strong>device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the processing unit (GPU or CPU) identifier to run the training on (<code class="docutils literal notranslate"><span class="pre">'cpu'</span></code>: run on CPU).</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the batch size.</p></li>
+<li><p><strong>max_epochs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the maximum number of epochs to train.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel.train_and_record">
+<code class="sig-name descname">train_and_record</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">src_data</span></em>, <em class="sig-param"><span class="n">run_logger</span></em>, <em class="sig-param"><span class="n">intermediate_evaluators</span></em>, <em class="sig-param"><span class="n">final_evaluators</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.api.GCLTrainableInvertibleICAModel.train_and_record" title="Permalink to this definition">¶</a></dt>
+<dd><p>A version of <code class="docutils literal notranslate"><span class="pre">train()</span></code> that also records the intermediate information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – <p>Contains <code class="docutils literal notranslate"><span class="pre">(data_numpy_array,</span> <span class="pre">labels_numpy_array)</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_numpy_array</span></code> is the numpy array containing the data point values (shape: <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">dim)</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label_numpy_array</span></code> is the numpy array containing the labels to indicate the “auxiliary information” for GCL (shape: <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">dim)</span></code>).</p></li>
+</ul>
+</p></li>
+<li><p><strong>run_logger</strong> – the logger to save the results.</p></li>
+<li><p><strong>intermediate_evaluators</strong> (<a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.evaluator_runner.EvaluatorRunner" title="causal_da.api_support.evaluator_runner.EvaluatorRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorRunner</span></code></a>) – the evaluators to be called at the end of every epoch.</p></li>
+<li><p><strong>final_evaluators</strong> (<a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.evaluator_runner.EvaluatorRunner" title="causal_da.api_support.evaluator_runner.EvaluatorRunner"><code class="xref py py-class docutils literal notranslate"><span class="pre">EvaluatorRunner</span></code></a>) – the evaluators to be called at the end of the training.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.ica_torch.gcl_model">
+<span id="causal-da-components-ica-torch-gcl-model"></span><h2>causal_da.components.ica_torch.gcl_model<a class="headerlink" href="#module-causal_da.components.ica_torch.gcl_model" title="Permalink to this headline">¶</a></h2>
+<p>Generalized Contrastive Learning ICA</p>
+<dl class="py class">
+<dt id="causal_da.components.ica_torch.gcl_model.ComponentWiseTransformWithAuxSelection">
+<em class="property">class </em><code class="sig-name descname">ComponentWiseTransformWithAuxSelection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_dim</span></em>, <em class="sig-param"><span class="n">n_aux</span></em>, <em class="sig-param"><span class="n">hidden_dim</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">n_layer</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.ComponentWiseTransformWithAuxSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#causal_da.components.ica_torch.gcl_model.ComponentwiseTransform" title="causal_da.components.ica_torch.gcl_model.ComponentwiseTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.components.ica_torch.gcl_model.ComponentwiseTransform</span></code></a></p>
+<p>A special type of <code class="docutils literal notranslate"><span class="pre">ComponentWiseTransform</span></code>
+that takes discrete auxiliary variables and
+uses it as labels to select the output value out of an output vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – input variable dimensionality.</p></li>
+<li><p><strong>n_aux</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the cardinality of the label (auxiliary variable) candidates.</p></li>
+<li><p><strong>hidden_dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the number of the hidden units for each hidden layer (fixed across all hidden layers).</p></li>
+<li><p><strong>n_layer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the number of layers to stack.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.components.ica_torch.gcl_model.ComponentwiseTransform">
+<em class="property">class </em><code class="sig-name descname">ComponentwiseTransform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">modules</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.ComponentwiseTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>A neural network module to represent trainable dimension-wise transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>modules</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleList</span></code>]) – list of neural networks each of which is a univariate function
+(or additionally it can take an auxiliary input variable).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel">
+<em class="property">class </em><code class="sig-name descname">GeneralizedContrastiveICAModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">network</span></em>, <em class="sig-param"><span class="n">dim</span></em>, <em class="sig-param"><span class="n">n_label</span></em>, <em class="sig-param"><span class="n">componentwise_transform</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">linear</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
+<p>Example implementation of the ICA (wrapper) model that can be trained via GCL.
+It takes a feature extractor to estimate the mixing function
+and adds a classification functionality to enable the training procedure of GCL.</p>
+<dl class="simple">
+<dt>Params:</dt><dd><p>network: An invertible neural network (of PyTorch).
+linear: A linear layer to be placed at the beginning of the classification layer.
+dim: The dimension of the input (i.e., the dimension of the signal source).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.classify">
+<code class="sig-name descname">classify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">return_hidden</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform classification using the model for GCL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>]) – tuple of input vector (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,</span> <span class="pre">n_dim))</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">target</span> <span class="pre">labels</span> <span class="pre">(shape</span> <span class="pre">``(n_sample,</span> <span class="pre">)</span></code>).</p></li>
+<li><p><strong>return_hidden</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether to also return the hidden representation obtained by the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.extract">
+<code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <code class="docutils literal notranslate"><span class="pre">hidden()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <code class="docutils literal notranslate"><span class="pre">hidden()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.hidden">
+<code class="sig-name descname">hidden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.hidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the hidden vector from the input data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>) – input tensor.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.inv">
+<code class="sig-name descname">inv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.gcl_model.GeneralizedContrastiveICAModel.inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform inverse computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">FloatTensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – input data.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>numpy array containing the input vectors.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.ica_torch.logging_util">
+<span id="causal-da-components-ica-torch-logging-util"></span><h2>causal_da.components.ica_torch.logging_util<a class="headerlink" href="#module-causal_da.components.ica_torch.logging_util" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger">
+<em class="property">class </em><code class="sig-name descname">DummyRunLogger</code><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility class to placehold the logger.</p>
+<p>Initialize the run-logger.</p>
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.end_run">
+<code class="sig-name descname">end_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.end_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the end of the experiment run.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.log_artifact">
+<code class="sig-name descname">log_artifact</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_path</span></em>, <em class="sig-param"><span class="n">folder_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.log_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log an artifact (e.g., a model).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.log_metrics">
+<code class="sig-name descname">log_metrics</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dic</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.log_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the metrics.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.log_params">
+<code class="sig-name descname">log_params</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.log_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.log_params_exp_wide">
+<code class="sig-name descname">log_params_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">params_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.log_params_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.set_tags">
+<code class="sig-name descname">set_tags</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.set_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.set_tags_exp_wide">
+<code class="sig-name descname">set_tags_exp_wide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tags_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.set_tags_exp_wide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the experiment-wide tags.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="causal_da.components.ica_torch.logging_util.DummyRunLogger.start_run">
+<code class="sig-name descname">start_run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.logging_util.DummyRunLogger.start_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>A callback called at the beginning of the experiment run.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.components.ica_torch.trainer_util">
+<span id="causal-da-components-ica-torch-trainer-util"></span><h2>causal_da.components.ica_torch.trainer_util<a class="headerlink" href="#module-causal_da.components.ica_torch.trainer_util" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="causal_da.components.ica_torch.trainer_util.binary_logistic_loss">
+<code class="sig-name descname">binary_logistic_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outputs</span></em>, <em class="sig-param"><span class="n">positive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.trainer_util.binary_logistic_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function to wrap <code class="docutils literal notranslate"><span class="pre">torch.SoftMarginLoss</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="causal_da.components.ica_torch.trainer_util.random_pick_wrong_target">
+<code class="sig-name descname">random_pick_wrong_target</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">target</span></em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.components.ica_torch.trainer_util.random_pick_wrong_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>After shuffling each row, pick the one with the index just before the target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – the tensor (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,)</span></code>) of auxiliary variables
+used for generalized contrastive training.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the randomized fake auxiliary variables to be made as negative targets in generalized
+contrastive learning (shape <code class="docutils literal notranslate"><span class="pre">(n_sample,)</span></code>).</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Duplicate entries in <code class="docutils literal notranslate"><span class="pre">target</span></code> are allowed; <code class="docutils literal notranslate"><span class="pre">torch.unique()</span></code> is applied.</p>
+</div>
+</dd></dl>
+
+<span class="target" id="module-causal_da.components.ica_torch"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="causal_da.components.inn_torch.html" class="btn btn-neutral float-right" title="causal_da.components.inn_torch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="causal_da.components.aug_predictor.html" class="btn btn-neutral float-left" title="causal_da.components.aug_predictor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

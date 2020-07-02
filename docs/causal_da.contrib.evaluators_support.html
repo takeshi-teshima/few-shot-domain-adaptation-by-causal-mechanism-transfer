@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>causal_da.contrib.evaluators_support &mdash; Causal DA 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="causal_da.contrib" href="causal_da.contrib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Causal DA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="causal_da.html">causal_da</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="causal_da.html#module-causal_da.ICML2020_api">causal_da.ICML2020_api</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="causal_da.algorithm.html">causal_da.algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.api_support.html">causal_da.api_support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="causal_da.components.html">causal_da.components</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="causal_da.contrib.html">causal_da.contrib</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="causal_da.contrib.html#module-causal_da.contrib.evaluators">causal_da.contrib.evaluators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Causal DA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="causal_da.html">causal_da</a> &raquo;</li>
+        
+          <li><a href="causal_da.contrib.html">causal_da.contrib</a> &raquo;</li>
+        
+      <li>causal_da.contrib.evaluators_support</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/causal_da.contrib.evaluators_support.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="causal-da-contrib-evaluators-support">
+<h1>causal_da.contrib.evaluators_support<a class="headerlink" href="#causal-da-contrib-evaluators-support" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-causal_da.contrib.evaluators_support.aug_info_assessment">
+<span id="causal-da-contrib-evaluators-support-aug-info-assessment"></span><h2>causal_da.contrib.evaluators_support.aug_info_assessment<a class="headerlink" href="#module-causal_da.contrib.evaluators_support.aug_info_assessment" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.contrib.evaluators_support.aug_info_assessment.AugmenterInfoAssessment">
+<em class="property">class </em><code class="sig-name descname">AugmenterInfoAssessment</code><a class="headerlink" href="#causal_da.contrib.evaluators_support.aug_info_assessment.AugmenterInfoAssessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.assessment_base.AugAssessmentBase" title="causal_da.api_support.assessment_base.AugAssessmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.assessment_base.AugAssessmentBase</span></code></a></p>
+<p>This class probes some metrics of a learned augmenter.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-causal_da.contrib.evaluators_support.aug_krr_assessment">
+<span id="causal-da-contrib-evaluators-support-aug-krr-assessment"></span><h2>causal_da.contrib.evaluators_support.aug_krr_assessment<a class="headerlink" href="#module-causal_da.contrib.evaluators_support.aug_krr_assessment" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="causal_da.contrib.evaluators_support.aug_krr_assessment.AugKRRAssessment">
+<em class="property">class </em><code class="sig-name descname">AugKRRAssessment</code><span class="sig-paren">(</span><em class="sig-param">augment_size=None</em>, <em class="sig-param">metrics={'MSE': &lt;function mean_squared_error&gt;}</em><span class="sig-paren">)</span><a class="headerlink" href="#causal_da.contrib.evaluators_support.aug_krr_assessment.AugKRRAssessment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="causal_da.api_support.html#causal_da.api_support.assessment_base.StandardAssessmentBase" title="causal_da.api_support.assessment_base.StandardAssessmentBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">causal_da.api_support.assessment_base.StandardAssessmentBase</span></code></a></p>
+<p>This class evaluates the augmenter by applying kernel ridge regression (KRR)
+on the augmented data and measuring its prediction error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>augment_size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – the size of the augmentation.</p></li>
+<li><p><strong>metrics</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – the dict of metrics to use for evaluating the predictions.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-causal_da.contrib.evaluators_support"></span></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="causal_da.contrib.html" class="btn btn-neutral float-left" title="causal_da.contrib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Takeshi Teshima
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

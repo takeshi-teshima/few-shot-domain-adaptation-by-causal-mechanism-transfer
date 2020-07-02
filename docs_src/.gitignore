@@ -1,0 +1,6 @@
+*.rst
+!index.rst
+!modules.rst
+!setup.rst
+
+temp_src/
