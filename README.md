@@ -12,7 +12,7 @@ Are causal discovery methods beneficial for machine learning tasks?
   Domain adaptation among systems sharing the same causal mechanism
   can be performed by estimating the structural equations (reduced-form equations; estimated by nonlinear ICA).
 
-  [![Problem setup schema](schema_problem_setup.png)]
+  [![Problem setup schema](https://github.com/takeshi-teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer/blob/master/docs/figs/schema_problem_setup.png)]
 
   * Theoretically well-grounded domain adaptation (generalization error bound without the partial-distribution-shift assumption).
   * Intuitively accessible transfer assumption: if the data come from the same causal mechanism, information can be transferred.
