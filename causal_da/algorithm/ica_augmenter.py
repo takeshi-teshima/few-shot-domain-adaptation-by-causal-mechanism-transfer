@@ -6,7 +6,7 @@ import torch.nn as nn
 from numpy.random import randint
 
 # Type hinting
-from typing import Union, Optional
+from typing import Union, Optional, Iterable
 
 
 class ICAAugmenter(nn.Module):
@@ -15,6 +15,12 @@ class ICAAugmenter(nn.Module):
                  feature_extractor,
                  novelty_detector,
                  max_iter: Optional[int] = None):
+        """
+        Parameters:
+            feature_extractor: the main feature extractor model to estimate the mixing function of ICA.
+            novelty_detector: the novelty detection method that implements ``fit()``.
+            max_iter: the maximum number of iterations for the ICA training.
+        """
         super().__init__()
         self.feature_extractor = feature_extractor
         self.novelty_detector = novelty_detector
@@ -23,18 +29,37 @@ class ICAAugmenter(nn.Module):
         else:
             self.max_iter = max_iter
 
-    def _fit_novelty_detector(self, data):
+    def _fit_novelty_detector(self, data: np.ndarray):
+        """Fit the novelty detector.
+
+        Parameters:
+            data: the data used to fit the novelty detector.
+        """
         self.novelty_detector.fit(data)
 
     def _to_latent(self, X: np.ndarray):
-        """X -> (f^{-1}) -> e"""
+        """Extract the latent values from the data.
+
+        Parameters:
+            X: input data.
+
+        Note:
+            X -> (f^{-1}) -> e
+        """
         with torch.no_grad():
             e = self.feature_extractor(X)
         return e
 
-    def _augment_latent(self, e: np.ndarray, size):
+    def _augment_latent(self, e: np.ndarray,
+                        size: Optional[Union[float, int]]):
         """A utility function to generate augmented latent variables.
-        e -> (independentify) -> ebar
+
+        Parameters:
+            e: the latent representation to be augmented in the latent space.
+            size: the desired size of the augmented data.
+
+        Note:
+            e -> (independentify) -> ebar
         """
         if size is None:
             ebar = full_combination(e)
@@ -45,31 +70,19 @@ class ICAAugmenter(nn.Module):
 
     def augment(self,
                 X: np.ndarray,
-                size,
-                with_latent=False,
-                include_original=False,
-                with_acceptance_ratio=False):
+                size: Optional[Union[int, float]],
+                with_latent: bool = False,
+                include_original: bool = False,
+                with_acceptance_ratio: bool = False):
         """Augment numpy arrays.
 
-        Parameters
-        ----------
-        X:
-            Data to augment
+        Parameters:
+            X: Data to augment
+            size: Size of the extension (``int``: resulting number of points. ``float``: ratio to the original data size. ``None``: full size ($n^D$ where $n$=data size, $D$=data dimension)).
 
-        size : (int, float, or None)
-            Size of the extension.
-
-            ``int`` -> resulting number of points.
-
-            ``float`` -> ratio to the original data size.
-
-            ``None`` -> Full size ($n^D$ where $n$=data size, $D$=data dimension).
-
-        Returns
-        ----------
-            xbar       (by default)
-
-            xbar, ebar (if with_latent == True)
+        Returns:
+            * xbar       (by default)
+            * xbar, ebar (if with_latent == True)
         """
         e = self._to_latent(X)
         ebar = self._augment_latent(e, size)
@@ -87,12 +100,11 @@ class ICAAugmenter(nn.Module):
             _res.append(np.mean(inside_train_data_support))
         return tuple(_res)
 
-    def is_valid_generated_data(self, xbar):
+    def is_valid_generated_data(self, xbar) -> np.ndarray:
         """Return if data is (inside_train_data_support) and (not np.inf) and (not np.nan)
 
-        Returns
-        -------
-            ``np.ndarray``: ``1`` if inside support, ``-1`` otherwise
+        Returns:
+            an array containing the decision (``1`` if inside support. ``-1`` otherwise.)
         """
         inside = self.novelty_detector.predict(np.nan_to_num(xbar)) == 1
         not_nan = np.logical_not(np.isnan(xbar).any(axis=1))
@@ -105,6 +117,16 @@ class ICAAugmenter(nn.Module):
                         with_latent=False,
                         include_original=False,
                         with_acceptance_ratio=False):
+        """Augment data to the desired size.
+
+        Parameters:
+            X: input data of shape ``(n_data, n_dim)``
+            Y: predicted data of shape ``(n_data, 1)``
+            augment_size: the desired size of the augmented data.
+            with_latent: whether to also return the extracted latent variables.
+            include_original: whether to make sure the original data is always included in the output (in the augmented data).
+            with_acceptance_ratio: whether to also return the acceptance ratio.
+        """
         if size is None:
             return self.augment(X,
                                 size,
@@ -118,21 +140,20 @@ class ICAAugmenter(nn.Module):
 
     def _repeat_augment_upto_size(self,
                                   X: np.ndarray,
-                                  size: Union[float, int],
+                                  size: Optional[Union[float, int]],
                                   with_latent=False,
                                   include_original=True,
                                   with_acceptance_ratio=False):
         """Augment numpy arrays.
 
-        Params:
+        Parameters:
             X: Data to augment
+            size: Size of the extension. Int -> resulting number of points.
+            (``float``: ratio to the original data size. ``None``: full size ($n^D$ where $n$=data size, $D$=data dimension)).
 
-            size (int, float, or None): Size of the extension. Int -> resulting number of points. Float -> ratio to the original data size. None -> Full size ($n^D$ where $n$=data size, $D$=data dimension).
-
-        Return:
-            xbar       (by default)
-
-            xbar, ebar (if with_latent == True)
+        Returns:
+            * xbar       (by default)
+            * xbar, ebar (if with_latent == True)
         """
         e = self._to_latent(X)
         size = get_size(X, size)
@@ -164,6 +185,7 @@ class ICAAugmenter(nn.Module):
 
 
 def full_combination(x: np.ndarray):
+    """Take the full product of the dimension-wise combinations of input data."""
     perms = np.array(
         list(itertools.product(range(x.shape[0]), repeat=x.shape[1])))
     return np.hstack(
@@ -171,12 +193,14 @@ def full_combination(x: np.ndarray):
 
 
 def stochastic_combination(x: np.ndarray, size: int):
+    """Take random combinations of the data values to the desired size."""
     perms = randint(x.shape[0], size=(size, x.shape[1]))
     return np.hstack(
         tuple(x[perms[:, d], d][:, None] for d in range(x.shape[1])))
 
 
-def get_size(x, size):
+def get_size(x: Iterable, size: Union[float, int]):
+    """Determine the size of the augmentation."""
     if isinstance(size, int):
         n = size
     elif isinstance(size, float):
@@ -187,7 +211,17 @@ def get_size(x, size):
 
 
 class ICATransferAugmenter(ICAAugmenter):
-    def fit(self, X_src, Y_src, c_src, **kwargs):
+    """A utility class to use ``ICAAugmenter`` for data with a distinction
+    between the predictor variables and the predicted variables."""
+    def fit(self, X_src: np.ndarray, Y_src: np.ndarray, c_src: np.ndarray,
+            **kwargs):
+        """Fit the model and the novelty detector.
+
+        Parameters:
+            X_src: the perdictor variables of the source domains.
+            Y_src: the perdicted variables of the source domains.
+            c_src: the source domain index.
+        """
         data_src = np.hstack((X_src, Y_src))
         super().fit(data_src, c_src, **kwargs)
         self._fit_novelty_detector(data_src)
@@ -195,10 +229,20 @@ class ICATransferAugmenter(ICAAugmenter):
     def augment_to_size(self,
                         X: np.ndarray,
                         Y: np.ndarray,
-                        size: Union[float, int],
+                        size: Optional[Union[float, int]],
                         with_latent=False,
                         include_original=True,
                         with_acceptance_ratio=False):
+        """Augment data to the desired size.
+
+        Parameters:
+            X: input data of shape ``(n_data, n_dim)``
+            Y: predicted data of shape ``(n_data, 1)``
+            augment_size: the desired size of the augmented data.
+            with_latent: whether to also return the extracted latent variables.
+            include_original: whether to make sure the original data is always included in the output (in the augmented data).
+            with_acceptance_ratio: whether to also return the acceptance ratio.
+        """
         inputs = np.hstack((X, Y))
         result = super().augment_to_size(
             inputs,

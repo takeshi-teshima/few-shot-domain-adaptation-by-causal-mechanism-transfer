@@ -1,6 +1,6 @@
 from typing import Iterable, Optional
 from sklearn.svm import OneClassSVM
-from .api_support.evaluators import AugmenterEvaluator
+from causal_da.api_support.evaluator import AugmenterEvaluatorBase
 from .ica_augmenter import ICATransferAugmenter
 
 
@@ -53,8 +53,8 @@ class CausalMechanismTransfer:
             ica_run_logger,
             ica_intermediate_evaluators,
             ica_final_evaluators,
-            augmenter_evaluators: Iterable[AugmenterEvaluator] = [],
-            augmenter_final_evaluators: Iterable[AugmenterEvaluator] = []):
+            augmenter_evaluators: Iterable[AugmenterEvaluatorBase] = [],
+            augmenter_final_evaluators: Iterable[AugmenterEvaluatorBase] = []):
         """A version of ``train()`` that also records the intermediate information.
 
         Parameters
@@ -84,6 +84,3 @@ class CausalMechanismTransfer:
         return self.trainable_invertible_ica.train_and_record(
             ica_data, ica_run_logger, ica_intermediate_evaluators,
             ica_final_evaluators)
-
-    def train(self):
-        raise NotImplementedError()

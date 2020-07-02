@@ -6,7 +6,7 @@ from causal_da.api_support.logging.model_logger import MLFlowMultiModelLogger
 
 # Type hinting
 from typing import Iterable, List, Dict, Optional, Union, Tuple
-from causal_da.api_support.assessment_base import AugAssessmentBase, StandardAssessmentBase
+from causal_da.api_support.assessment_base import AugAssessmentBase, StandardAssessmentBase                         
 
 
 class AugmentingMultiAssessmentEvaluator(AugmenterEvaluatorBase):
@@ -44,7 +44,7 @@ class AugmentingMultiAssessmentEvaluator(AugmenterEvaluatorBase):
 
         Parameters:
             augmenter: the augmenter.
-            epoch: the epoch when this evaluation is run in the training loop.
+            epoch: the epoch when this evaluation is run in the training loop (``None`` if outside a training loop).
         """
         # Output of augmenter.augment_to_size() is (_X, _Y, _e, acceptance_ratio)
         augmenter_output = augmenter.augment_to_size(
@@ -101,7 +101,7 @@ class TargetDomainsAverageEvaluator(AugmenterEvaluatorBase):
 
         Parameters:
             augmenter: the augmenter.
-            epoch: the epoch when this evaluation is run in the training loop.
+            epoch: the epoch when this evaluation is run in the training loop (``None`` if outside a training loop).
         """
         for assessment in self.assessments:
             results = []
@@ -131,7 +131,7 @@ class ModelSavingEvaluator(AugmenterEvaluatorBase):
 
         Parameters:
             augmenter: the augmenter.
-            epoch: the epoch when this evaluation is run in the training loop.
+            epoch: the epoch when this evaluation is run in the training loop (``None`` if outside a training loop).
         """
         try:
             self.model_logger.save(augmenter, epoch)

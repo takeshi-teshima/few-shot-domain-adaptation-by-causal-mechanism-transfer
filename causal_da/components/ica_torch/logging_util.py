@@ -10,11 +10,11 @@ class DummyRunLogger:
         pass
 
     def start_run(self):
-        """Start the run."""
+        """A callback called at the beginning of the experiment run."""
         pass
 
     def end_run(self):
-        """End the run."""
+        """A callback called at the end of the experiment run."""
         pass
 
     def log_params(self, params_dict: dict):

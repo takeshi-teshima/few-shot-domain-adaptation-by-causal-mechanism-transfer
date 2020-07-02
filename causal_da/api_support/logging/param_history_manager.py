@@ -1,8 +1,12 @@
 from abc import abstractmethod
+
+# Type hinting
 from typing import Iterable, Dict, Any
+from pandas import DataFrame
 
 
 class ParamHistoryManagerBase:
+    """The base class of a parameter history manager."""
     @abstractmethod
     def filter(self, param_grid) -> Iterable[Dict]:
         """Given a set of candidate parameter sets, this function removes all existing sets
@@ -13,7 +17,12 @@ class ParamHistoryManagerBase:
 
 
 class PandasParamHistoryManager(ParamHistoryManagerBase):
-    def __init__(self, df):
+    """The parameter history manager based on ``pandas.DataFrame``."""
+    def __init__(self, df: DataFrame):
+        """
+        Parameters:
+            df: the data frame containing the previous records of the parameters and the evaluation results.
+        """
         self.df = df
 
     def _df_has_value_set(self, df, values: Dict[str, Any]) -> bool:

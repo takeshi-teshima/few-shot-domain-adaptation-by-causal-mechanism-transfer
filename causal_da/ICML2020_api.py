@@ -20,11 +20,18 @@ from .api_support.evaluator import AugmenterEvaluatorBase, AugmenterSavingEvalua
 class _RunWrapper:
     """A wrapper class to hold the unchanged arguments throughout all runs of Sacred."""
     def __init__(self, func, static_args, static_kwargs):
+        """
+        Parameters:
+            func: the function to be wrapped.
+            static_args: the static arguments.
+            static_kwargs: the static keyword arguments.
+        """
         self.func = func
         self.static_args = static_args
         self.static_kwargs = static_kwargs
 
     def __call__(self, idx, params_injector, run_logger):
+        """Run the function with the saved parameters."""
         return self.func(idx, params_injector, run_logger, *self.static_args,
                          **self.static_kwargs)
 
@@ -71,12 +78,11 @@ class _ICML2020APISingleRun:
 
         # 0. Prepare recording.
         run_logger.start_run()
-        _model_logger = MLFlowModelLogger(save_model_path, 'best_score_model',
+        _model_logger = MLFlowModelLogger(save_model_path, 'final_model',
                                           run_logger)
         ica_final_evaluators = EvaluatorRunner([])
         augmenter_final_evaluators = [
-            AugmenterSavingEvaluator(_model_logger, 'best_score_model',
-                                     run_logger)
+            AugmenterSavingEvaluator(_model_logger, 'final_model', run_logger)
         ]
         ica_run_logger = run_logger
 
@@ -97,7 +103,14 @@ class _ICML2020APISingleRun:
                                 ica_final_evaluators, augmenter_evaluators,
                                 augmenter_final_evaluators)
 
-    def _get_inn(self, params_injector, dim, run_logger):
+    def _get_inn(self, params_injector: dict, dim: int, run_logger):
+        """Build the invertible neural network model.
+
+        Parameters:
+            params_injector: the parameter holder.
+            dim: the data dimension.
+            run_logger: the logger to save the parameters.
+        """
         depth = params_injector.get('depth')
         n_hidden = params_injector.get('n_hidden')
         inn = GlowNonExponential(depth=depth, dim=dim, n_hidden=n_hidden)
@@ -109,6 +122,16 @@ class _ICML2020APISingleRun:
 
     def _prepare_trainable_ica_model(self, inn, params_injector, dim, n_label,
                                      run_logger, train_params):
+        """Build the trainable invertible ICA model based on the invertible neural network.
+
+        Parameters:
+            inn: the invertible neural network model.
+            params_injector: the parameter holder.
+            dim: the data dimension.
+            n_label: the number of the source domains.
+            run_logger: the logger to save the parameters.
+            train_params: the training-related parameters passed to the trainable ICA model.
+        """
         classifier_hidden_dim = params_injector.get('classifier_hidden_dim')
         classifier_n_layer = params_injector.get('classifier_n_layer')
         run_logger.log_params({
@@ -133,7 +156,7 @@ class CausalMechanismTransferICML2020API:
 
     * Hyper-paramter search: grid-search.
 
-      * HP selection is assumed to be performed by recording the validation scores for all runs in MongoDB and comparing the scores later.
+        * HP selection is assumed to be performed by recording the validation scores for all runs in MongoDB and comparing the scores later.
 
     * Experiment recording: Sacred + MongoDB.
 
@@ -141,13 +164,13 @@ class CausalMechanismTransferICML2020API:
 
     * ICA
 
-      * training: GCL (out-of-the-box).
+        * training: GCL (out-of-the-box).
 
-      * Invertible neural network: Glow-based (without exponential activation).
+        * Invertible neural network: Glow-based (without exponential activation).
 
     * Predictor
 
-      * Kernel ridge regression (RBF kernel)
+        * Kernel ridge regression (RBF kernel)
     """
     def __init__(
             self,
@@ -161,7 +184,12 @@ class CausalMechanismTransferICML2020API:
             self.run_logger = run_logger
         self.param_history_manager = param_history_manager
 
-    def _prepare_hyperparam_grid(self, cfg_method):
+    def _prepare_hyperparam_grid(self, cfg_method: dict):
+        """Prepare the hyperparameter grid by taking all combinations.
+
+        Parameters:
+            cfg_method: the parameter holder.
+        """
         space = cfg_method['base_param']
         space.update(cfg_method['model_param'])
         param_grid = list(ParameterGrid(space))
