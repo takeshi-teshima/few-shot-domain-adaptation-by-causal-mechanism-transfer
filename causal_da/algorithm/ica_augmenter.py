@@ -70,7 +70,7 @@ class ICAAugmenter(nn.Module):
 
     def augment(self,
                 X: np.ndarray,
-                size: Optional[Union[int, float]],
+                augment_size: Optional[Union[int, float]],
                 with_latent: bool = False,
                 include_original: bool = False,
                 with_acceptance_ratio: bool = False):
@@ -78,14 +78,14 @@ class ICAAugmenter(nn.Module):
 
         Parameters:
             X: Data to augment
-            size: Size of the extension (``int``: resulting number of points. ``float``: ratio to the original data size. ``None``: full size ($n^D$ where $n$=data size, $D$=data dimension)).
+            augment_size: Size of the extension (``int``: resulting number of points. ``float``: ratio to the original data size. ``None``: full size ($n^D$ where $n$=data size, $D$=data dimension)).
 
         Returns:
             * xbar       (by default)
             * xbar, ebar (if with_latent == True)
         """
         e = self._to_latent(X)
-        ebar = self._augment_latent(e, size)
+        ebar = self._augment_latent(e, augment_size)
         with torch.no_grad():
             xbar = self.feature_extractor.inv(ebar)  # ebar -> (f) -> xbar
         inside_train_data_support = self.is_valid_generated_data(xbar)
@@ -113,7 +113,7 @@ class ICAAugmenter(nn.Module):
 
     def augment_to_size(self,
                         X: np.ndarray,
-                        size: Optional[Union[float, int]],
+                        augment_size: Optional[Union[float, int]],
                         with_latent=False,
                         include_original=False,
                         with_acceptance_ratio=False):
@@ -127,20 +127,20 @@ class ICAAugmenter(nn.Module):
             include_original: whether to make sure the original data is always included in the output (in the augmented data).
             with_acceptance_ratio: whether to also return the acceptance ratio.
         """
-        if size is None:
+        if augment_size is None:
             return self.augment(X,
-                                size,
+                                augment_size,
                                 with_latent=with_latent,
                                 include_original=include_original,
                                 with_acceptance_ratio=with_acceptance_ratio)
         else:
-            return self._repeat_augment_upto_size(X, size, with_latent,
+            return self._repeat_augment_upto_size(X, augment_size, with_latent,
                                                   include_original,
                                                   with_acceptance_ratio)
 
     def _repeat_augment_upto_size(self,
                                   X: np.ndarray,
-                                  size: Optional[Union[float, int]],
+                                  augment_size: Optional[Union[float, int]],
                                   with_latent=False,
                                   include_original=True,
                                   with_acceptance_ratio=False):
@@ -148,7 +148,7 @@ class ICAAugmenter(nn.Module):
 
         Parameters:
             X: Data to augment
-            size: Size of the extension. Int -> resulting number of points.
+            augment_size: Size of the extension. Int -> resulting number of points.
             (``float``: ratio to the original data size. ``None``: full size ($n^D$ where $n$=data size, $D$=data dimension)).
 
         Returns:
@@ -156,7 +156,7 @@ class ICAAugmenter(nn.Module):
             * xbar, ebar (if with_latent == True)
         """
         e = self._to_latent(X)
-        size = get_size(X, size)
+        size = get_size(X, augment_size)
         _acceptance_ratios = []
         if include_original:
             ret, ret_e = X, e
@@ -229,7 +229,7 @@ class ICATransferAugmenter(ICAAugmenter):
     def augment_to_size(self,
                         X: np.ndarray,
                         Y: np.ndarray,
-                        size: Optional[Union[float, int]],
+                        augment_size: Optional[Union[float, int]],
                         with_latent=False,
                         include_original=True,
                         with_acceptance_ratio=False):
@@ -246,7 +246,7 @@ class ICATransferAugmenter(ICAAugmenter):
         inputs = np.hstack((X, Y))
         result = super().augment_to_size(
             inputs,
-            size,
+            augment_size,
             with_latent=with_latent,
             include_original=include_original,
             with_acceptance_ratio=with_acceptance_ratio)
