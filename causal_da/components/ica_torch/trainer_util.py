@@ -1,18 +1,23 @@
 import torch
 import torch.nn as nn
 
-
-class Log1pLoss:
-    def __init__(self, func):
-        self.func = func
-
-    def __call__(self, x):
-        return self.func(x).log1p()
+# Type hinting
+from torch import LongTensor, FloatTensor
 
 
-def random_pick_wrong_target(target):
-    """
-    After shuffling each row, pick the one with the index just before the target.
+def random_pick_wrong_target(target: LongTensor) -> LongTensor:
+    """After shuffling each row, pick the one with the index just before the target.
+
+    Parameters:
+        target: the tensor (shape ``(n_sample,)``) of auxiliary variables
+                used for generalized contrastive training.
+
+    Return:
+        the randomized fake auxiliary variables to be made as negative targets in generalized
+        contrastive learning (shape ``(n_sample,)``).
+
+    Note:
+        Duplicate entries in ``target`` are allowed; ``torch.unique()`` is applied.
     """
     # expanded = unique_labels.expand(len(target), -1)
     # masked = expanded.flatten()[.flatten()]
@@ -26,19 +31,12 @@ def random_pick_wrong_target(target):
     return wrong_labels
 
 
-BCE_LOSS = torch.nn.BCEWithLogitsLoss()
 LOG_LOGISTIC_LOSS = nn.SoftMarginLoss()
 
 
-def _loss_1(outputs, positive: bool):
+def binary_logistic_loss(outputs: FloatTensor, positive: bool):
+    """Utility function to wrap ``torch.SoftMarginLoss``."""
     if positive:
         return LOG_LOGISTIC_LOSS(outputs, torch.ones(len(outputs)))
     else:
         return LOG_LOGISTIC_LOSS(outputs, -torch.ones(len(outputs)))
-
-
-def _loss_2(outputs, positive: bool):
-    if positive:
-        return BCE_LOSS(outputs, torch.ones(len(outputs)))
-    else:
-        return BCE_LOSS(outputs, torch.zeros(len(outputs)))

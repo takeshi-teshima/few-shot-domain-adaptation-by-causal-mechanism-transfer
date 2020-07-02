@@ -1,11 +1,20 @@
 import numpy as np
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.metrics.pairwise import euclidean_distances
-from .krr_params import DEFAULT_HYPERPARAM_CANDIDATES, DEFAULT_HYPERPARAM_DISTRIBUTIONS
 from .util import Timer
 
+# Type hinting
+from typing import Optional, Iterable, Union
 
-def median_heuristic(x):
+
+def median_heuristic(x: np.ndarray) -> float:
+    """Compute the median heuristic for those kernels
+    which depend on the Euclidean distances among the input points
+    (mainly for the RBF kernel = the Gaussian kernel).
+
+    Parameters:
+        x: input data.
+    """
     dist = euclidean_distances(x)
     median_d = np.median(dist[np.triu_indices_from(dist, k=1)])
     gamma = 1 / (2 * median_d**2)
@@ -13,29 +22,35 @@ def median_heuristic(x):
 
 
 class PartialLOOCVKRR:
-    def __init__(self,
-                 alphas=DEFAULT_HYPERPARAM_CANDIDATES['alpha'],
-                 gammas=DEFAULT_HYPERPARAM_CANDIDATES['gamma']):
-        """Kernel ridge regression predictor with the analytic-form LOOCV.
-        The LOOCV is performed only on the original training data
-        while the training is performed on the whole generated data.
+    """Kernel ridge regression predictor with the analytic-form leave-one-out cross-validation (LOOCV).
+    The LOOCV is performed only on part of the training data
+    while the training is performed on the whole generated data.
+    """
+    def __init__(
+            self,
+            alphas: Iterable[float] = [2.**i for i in range(-10, 10 + 1, 1)],
+            gammas: Union[Iterable[None], Iterable[float]] = [None]):
+        """
+        Parameters:
+            alphas: the Iterable of regularization coefficient candidates.
+            gammas: the Iterable of kernel bandwidth candidates.
 
-        Note
-        ----
-        If gammas == [None], median heuristic is used.
+        Note:
+            If gammas == [None], median heuristic is used.
         """
         self.alphas = alphas
         self.gammas = gammas
 
-    def _get_ktilde(self, K, alpha):
-        ## Ktilde := (K' K + \lambda I)^{-1} K'
+    def _get_ktilde(self, K: np.ndarray, alpha: float):
+        """Compute $\tilde{K} := (K^\top K + \lambda I)^{-1} K^\top$.
+        """
         Ktilde = np.linalg.inv(K.T @ K + alpha * np.eye(len(K))) @ K.T
         return Ktilde
 
     @Timer.set(lambda t: print)
-    def _loocv_score(self, K, alpha, y, L):
+    def _loocv_score(self, K: np.ndarray, alpha: float, y: np.ndarray, L: int):
         """LOOCV score computed using only the first L points as candidates for validation points.
-            K := (\phi(x_1), \ldots, \phi(x_n))'
+        $K := (\phi(x_1), \ldots, \phi(x_n))^\top$
         """
         Ktilde = self._get_ktilde(K, alpha)
         H = np.hstack((np.eye(L), np.zeros(
@@ -43,11 +58,30 @@ class PartialLOOCVKRR:
         score = np.mean((H @ y / H.diagonal()[:, None])**2)
         return score
 
-    def get_heuristic_gamma(self, x):
+    def get_heuristic_gamma(self, x: np.ndarray):
+        """Apply the median heuristic used to select the kernel bandwidth.
+
+        Parameters:
+            x: the input data of shape ``(n_sample, n_dim)`` to compute the median from.
+        """
         gamma = median_heuristic(x)
         return gamma
 
-    def fit(self, x, y, aux_x=None, aux_y=None, sample_weight=None):
+    def fit(self,
+            x: np.ndarray,
+            y: np.ndarray,
+            aux_x: Optional[np.ndarray] = None,
+            aux_y: Optional[np.ndarray] = None,
+            sample_weight: Optional[np.ndarray] = None):
+        """Fit the predictor.
+
+        Parameters:
+            x: the predictor variables in the original data.
+            y: the predicted variable in the original data.
+            aux_x: the predictor variables in the augmented data.
+            aux_y: the predicted variable in the augmented data.
+            sample_weight: sample weight array.
+        """
         try:
             self._fit(x,
                       y,
@@ -113,13 +147,19 @@ class PartialLOOCVKRR:
         _Ktilde = self._get_ktilde(_K, self.best_alpha)
         self.theta = _Ktilde @ all_y
 
-    def get_selected_params(self):
+    def get_selected_params(self) -> dict:
+        """Get the hyper-parameters selected by the LOOCV."""
         return {
             'gamma': self.best_gamma,
             'best_alpha': self.best_alpha,
         }
 
-    def predict(self, X):
+    def predict(self, X: np.ndarray) -> np.ndarray:
+        """Make a prediction.
+
+        Parameters:
+            X: input data (shape ``(n_sample, n_dim)``).
+        """
         _Phi = KernelRidge(kernel='rbf', gamma=self.best_gamma)._get_kernel(
             X, self.kernel_bases)
         pred = _Phi @ self.theta

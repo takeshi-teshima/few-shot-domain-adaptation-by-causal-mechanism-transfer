@@ -5,15 +5,7 @@
 
 Welcome to Causal DA's documentation!
 =====================================
-
-
-..
-   Indices and tables
-   ==================
-
-   * :ref:`genindex`
-   * :ref:`modindex`
-   * :ref:`search`
+This is the documentation of `Causal DA <https://github.com/takeshi-teshima/few-shot-domain-adaptation-by-causal-mechanism-transfer>`_.
 
 
 Do you want to...
@@ -32,3 +24,17 @@ Contents
    :hidden:
 
    causal_da
+
+
+References
+==========
+[1] Teshima, T., Sato, I., & Sugiyama, M. (2020). `Few-shot domain adaptation by causal mechanism transfer <https://arxiv.org/abs/2002.03497>`_ (`ICML 2020 <https://icml.cc/Conferences/2020>`_).
+
+
+..
+   Indices and tables
+   ==================
+
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`

@@ -3,18 +3,13 @@ from causal_da.components.aug_predictor import AugKRR
 from causal_da.api_support.evaluator import AugmenterValidationScoresEvaluator
 from causal_da.api_support.evaluator_runner import EvaluatorRunner
 from causal_da.contrib.evaluators import TargetDomainsAverageEvaluator, AugmentingMultiAssessmentEvaluator, ModelSavingEvaluator
-from causal_da.contrib.evaluators_support import AugmenterInfoAssessment, AugKRRAssessment
+from causal_da.contrib.evaluators_support.aug_krr_assessment import AugKRRAssessment
+from causal_da.contrib.evaluators_support.aug_info_assessment import AugmenterInfoAssessment
 from causal_da.api_support.validator.scores import AugSklearnScore
 from causal_da.api_support.validator.performance import SingleTargetDomainCVPerformanceValidationScorer
 
 
 def get_augmenter_evaluators(tar_tr, tar_te, augment_size, run_logger):
-    """
-    Example
-    -------
-    >>>print(True)
-    False
-    """
     namespace = "epoch_model"
     X_tar_tr, Y_tar_tr, c_tar_tr = tar_tr
     X_tar_te, Y_tar_te, c_tar_te = tar_te

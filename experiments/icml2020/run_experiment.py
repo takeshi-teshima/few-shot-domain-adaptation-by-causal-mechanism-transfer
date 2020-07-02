@@ -11,7 +11,6 @@ import numpy as np
 import torch
 from causal_da.ICML2020_api import CausalMechanismTransferICML2020API
 from causal_da.api_support.logging import MongoAndSacredRunLogger, PandasParamHistoryManager
-from causal_da.api_support.validator.base import DummyValidationScorer
 from causal_da.api_support.evaluator_runner import EvaluatorRunner, DummyEvaluatorRunner
 
 from support.database.records_aggregator import MongoAggregator

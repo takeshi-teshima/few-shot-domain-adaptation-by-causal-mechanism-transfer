@@ -18,6 +18,7 @@ from .api_support.evaluator import AugmenterEvaluatorBase, AugmenterSavingEvalua
 
 
 class _RunWrapper:
+    """A wrapper class to hold the unchanged arguments throughout all runs of Sacred."""
     def __init__(self, func, static_args, static_kwargs):
         self.func = func
         self.static_args = static_args
@@ -29,10 +30,7 @@ class _RunWrapper:
 
 
 class _ICML2020APISingleRun:
-    """Perform a single run and record the results.
-    This is essentially just its ``train_eval_single()`` method but with
-    the ability to hold the unchanged arguments throughout all runs.
-    """
+    """Perform a single run and record the results."""
     def __call__(self, idx: int, params_injector: dict, run_logger: RunLogger,
                  X_src, Y_src, c_src, save_model_path: Path,
                  ica_intermediate_evaluators, augmenter_evaluators,

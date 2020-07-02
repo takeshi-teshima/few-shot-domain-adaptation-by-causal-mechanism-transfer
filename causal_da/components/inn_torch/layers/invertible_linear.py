@@ -2,14 +2,29 @@ import math
 import torch
 import torch.nn as nn
 
+# Type hinting
+from typing import Union
+from torch import FloatTensor
+
 if hasattr(torch, 'solve'):
-    pytorch_solve = torch.solve
+    _pytorch_solve = torch.solve
 else:
-    pytorch_solve = torch.gesv
+    _pytorch_solve = torch.gesv
 
 
 class InvertibleLinear(nn.Module):
-    def __init__(self, n_dim, center='identity'):
+    """An invertible linear flow layer (i.e., the general linear group)."""
+    def __init__(self,
+                 n_dim: int,
+                 center: Union[str, FloatTensor] = 'identity'):
+        """
+        Parameters:
+            n_dim: the input dimension.
+            center: an offset to simplify the parametrization of the linear layer.
+                    * ``'identity'``: the matrix is parametrized by a difference form the identity matrix.
+                    * ``torch.FloatTensor``: the matrix is parametrized by a difference from ``center``.
+                    * otherwise: the matrix is parametrized by a difference from ``center``.
+        """
         super().__init__()
         self.n_dim = n_dim
         self.weight = nn.Parameter(torch.FloatTensor(n_dim, n_dim))
@@ -22,10 +37,19 @@ class InvertibleLinear(nn.Module):
         stdv = 1. / math.sqrt(self.weight.size(1))
         self.weight.data.uniform_(-stdv, stdv)
 
-    def forward(self, x):
+    def forward(self, x: FloatTensor) -> FloatTensor:
+        """Perform forward propagation.
+
+        Parameters:
+            x: input tensor.
+        """
         return torch.matmul(x, (self.center + self.weight).t())
 
-    def inv(self, x):
-        """Batch solve inverse.
+    def inv(self, x: FloatTensor) -> FloatTensor:
+        """Perform the inverse computation in a batch.
+
+        Parameters:
+            x: input tensor.
         """
-        return pytorch_solve(x[:, :, None], self.center + self.weight)[0][:, :, 0]
+        return _pytorch_solve(x[:, :, None],
+                              self.center + self.weight)[0][:, :, 0]

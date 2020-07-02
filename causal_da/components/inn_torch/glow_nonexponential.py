@@ -4,59 +4,72 @@ import torch.nn.functional as F
 import inn_torch.layers as layers
 from inn_torch.wrappers import SequentialFlow
 
+# Type hinting
+from torch import FloatTensor
+
 
 class GlowNonExponential(nn.Module):
     """A Glow model based on the exponential-activation-free affine coupling layers."""
-    def __init__(self, depth, dim, n_hidden=20, use_plu=False):
+    def __init__(self, depth: int, dim: int, n_hidden: int = 20):
         """
-        Parameters
-        ----------
-        depth : ``int``
-            The number of the (invertible linear, affine coupling) flow layer pairs to stack.
+        Parameters:
+            depth: The number of the (invertible linear, affine coupling) flow layer pairs to stack.
+            dim: The dimension of the input data.
+            n_hidden: The number of the hidden units of the parametrization of $s$ and $t$ in each affine coupling layer (the number of layers is fixed at one-hidden-layer).
 
-        dim : ``int``
-            The dimension of the input data.
-
-        n_hidden : ``int``
-            The number of the hidden units of the parametrization of $s$ and $t$ in each affine coupling layer (the number of layers is fixed at one-hidden-layer).
-
-        use_plu : ``bool`` (default ``False``)
-            Whether to use the PLU decomposition device to parametrize the invertible linear layer.
-
-        Note
-        ----
-        Since we employ invertible linear layers, we do not require
-        dimension-swap layers in between the affine coupling layers.
+        Note:
+            Since we employ invertible linear layers, we do not require
+            dimension-swap layers in between the affine coupling layers.
         """
         super().__init__()
         chain = []
         D, d = dim, dim // 2
         chain.append(layers.ActNorm(dim))
         for _ in range(depth):
-            if use_plu:
-                chain.append(layers.InvertiblePLU(dim))
-            else:
-                chain.append(layers.InvertibleLinear(dim))
+            chain.append(layers.InvertibleLinear(dim))
             chain.append(
                 layers.NonexponentialAffineCouplingLayer(
-                    d, NN(d, n_hidden, D - d)))
+                    d, _NN(d, n_hidden, D - d)))
         self.net = SequentialFlow(chain)
 
-    def forward(self, x):
+    def forward(self, x: FloatTensor) -> FloatTensor:
+        """Perform forward propagation.
+
+        Parameters:
+            x: input tensor.
+        """
         return self.net(x)
 
-    def inv(self, x):
+    def inv(self, x: FloatTensor) -> FloatTensor:
+        """Perform the inverse computation in a batch.
+
+        Parameters:
+            x: input tensor.
+        """
         return self.net.inv(x)
 
     def randomize_weights(self):
+        """Perform random initialization of the trainable parameters."""
         for net in self.net.chain:
             if isinstance(net, layers.AffineCouplingLayer):
                 net.net.randomize_weights()
         return self
 
 
-class NN(nn.Module):
-    def __init__(self, n_input, n_hidden, n_out, scale=False):
+class _NN(nn.Module):
+    """A utility neural network model (one-hidden-layer network) for affine coupling layers."""
+    def __init__(self,
+                 n_input: int,
+                 n_hidden: int,
+                 n_out: int,
+                 scale: bool = False):
+        """
+        Parameters:
+            n_input: the input dimension.
+            n_hidden: the number of the hidden units.
+            n_out: the output dimension.
+            scale: whether to train an extra coefficient on the output of $s$.
+        """
         super().__init__()
         self.fc1 = nn.Linear(n_input, n_hidden)
         self.fc_s = nn.Linear(n_hidden, n_out)
@@ -69,9 +82,14 @@ class NN(nn.Module):
         self.scale = scale
         if self.scale:
             self.scaler = nn.Parameter(torch.FloatTensor(1, n_out))
-            nn.init.constant_(self.scaler, 0.0)
+            nn.init.constant_(self.scaler, 1.0)
 
-    def forward(self, x):
+    def forward(self, x: FloatTensor) -> FloatTensor:
+        """Perform forward propagation.
+
+        Parameters:
+            x: input tensor.
+        """
         hidden = F.relu(self.fc1(x))
         if self.scale:
             s = self.scaler * torch.tanh(self.fc_s(hidden))
@@ -81,6 +99,7 @@ class NN(nn.Module):
         return s, t
 
     def randomize_weights(self):
+        """Perform random initialization of the trainable parameters."""
         nn.init.normal_(self.fc1.weight, 0, 1. / self.fc1.weight.shape[1])
         nn.init.normal_(self.fc_s.weight, 0, 1. / self.fc_s.weight.shape[1])
         nn.init.normal_(self.fc_t.weight, 0, 1. / self.fc_t.weight.shape[1])

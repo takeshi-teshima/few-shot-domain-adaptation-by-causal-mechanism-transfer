@@ -62,6 +62,9 @@ If you use the code in your project, please consider citing:
 }
 ```
 
+## Problems?
+- If you encounter any problem using the code in this repository or have suggestions for improvements, please do us a favor by ticketing an issue!
+
 ## Notes
 * In case you encounter any issues regarding the requirements,
   a full list of the installed packages in a working environment can be found at `requirements-full.txt` (the output of `$ pip freeze`).

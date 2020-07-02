@@ -38,8 +38,8 @@ release = '1.0.0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',  # napoleon needs to be loaded before autodoc_typehints. See https://pypi.org/project/sphinx-autodoc-typehints/ .
     'sphinx_autodoc_typehints',
-    'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',
     'sphinx.ext.doctest',
 ]

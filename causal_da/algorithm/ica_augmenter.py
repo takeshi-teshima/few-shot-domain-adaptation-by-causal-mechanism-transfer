@@ -1,15 +1,16 @@
 import itertools
-from itertools import permutations
 from math import floor
-from typing import Union, Optional
-
 import numpy as np
 import torch
 import torch.nn as nn
 from numpy.random import randint
 
+# Type hinting
+from typing import Union, Optional
+
 
 class ICAAugmenter(nn.Module):
+    """The augmenter based on independent component analysis."""
     def __init__(self,
                  feature_extractor,
                  novelty_detector,
