@@ -7,10 +7,10 @@ debug: False
 
 recording:
   table: icml2020
-  save_model_path: "local/saved_models"
+  save_model_path: "outputs/saved_models"
   recording_set: icml2020
   log_interval: 20
-  sacred_artifact_dir: "local/sacred_artifact"
+  sacred_artifact_dir: "outputs/sacred_artifact"
   data_cache_base_path: 'pickle/data'
 
 parallelization:
