@@ -350,10 +350,13 @@ uses it as labels to select the output value out of an output vector.</p>
 <p>Example implementation of the ICA (wrapper) model that can be trained via GCL.
 It takes a feature extractor to estimate the mixing function
 and adds a classification functionality to enable the training procedure of GCL.</p>
-<dl class="simple">
-<dt>Params:</dt><dd><p>network: An invertible neural network (of PyTorch).
-linear: A linear layer to be placed at the beginning of the classification layer.
-dim: The dimension of the input (i.e., the dimension of the signal source).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>network</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>) – An invertible neural network (of PyTorch).</p></li>
+<li><p><strong>linear</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code>]) – A linear layer to be placed at the beginning of the classification layer.</p></li>
+<li><p><strong>dim</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The dimension of the input (i.e., the dimension of the signal source).</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">

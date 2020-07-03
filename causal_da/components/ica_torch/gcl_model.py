@@ -8,7 +8,7 @@ import numpy as np
 # Type hinting
 from typing import Union, List, Optional, Any, Tuple
 from torch import FloatTensor, LongTensor
-       
+
 
 class ComponentwiseTransform(nn.Module):
     """A neural network module to represent trainable dimension-wise transformation."""
@@ -113,7 +113,7 @@ class GeneralizedContrastiveICAModel(nn.Module):
             componentwise_transform: Optional[ComponentwiseTransform] = None,
             linear: nn.Module = None):
         """
-        Params:
+        Parameters:
             network: An invertible neural network (of PyTorch).
             linear: A linear layer to be placed at the beginning of the classification layer.
             dim: The dimension of the input (i.e., the dimension of the signal source).

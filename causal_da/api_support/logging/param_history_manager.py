@@ -1,17 +1,20 @@
 from abc import abstractmethod
 
 # Type hinting
-from typing import Iterable, Dict, Any
+from typing import Iterable, Dict, Any, List
 from pandas import DataFrame
 
 
 class ParamHistoryManagerBase:
     """The base class of a parameter history manager."""
     @abstractmethod
-    def filter(self, param_grid) -> Iterable[Dict]:
+    def filter(self, param_grid: List[Dict[str, Any]]) -> Iterable[Dict]:
         """Given a set of candidate parameter sets, this function removes all existing sets
         and leaves the parameter set that is unexistent in the database of the previous runs.
         The set of keys appearing in its database needs to be a superset of the keys apperaing in the parameter candidates.
+
+        Parameters:
+            param_grid: the list of records to be filtered in.
         """
         pass
 
@@ -25,8 +28,12 @@ class PandasParamHistoryManager(ParamHistoryManagerBase):
         """
         self.df = df
 
-    def _df_has_value_set(self, df, values: Dict[str, Any]) -> bool:
+    def _df_has_value_set(self, df: DataFrame, values: Dict[str, Any]) -> bool:
         """Whether the df has a set of values.
+
+        Parameters:
+            df: the data frame representing the previous run results.
+            values: the dictionary representing the key-value pairs of a single record.
 
         Examples
         --------
@@ -41,8 +48,11 @@ class PandasParamHistoryManager(ParamHistoryManagerBase):
             df.query(' & '.join(
                 [f'{key} == {val}' for key, val in values.items()]))) > 0
 
-    def filter(self, param_grid) -> Iterable[Dict]:
+    def filter(self, param_grid: List[Dict[str, Any]]) -> Iterable[Dict]:
         """
+        Parameters:
+            param_grid: the list of records to be filtered in.
+
         Examples
         --------
         >>> import pandas as pd
@@ -51,8 +61,9 @@ class PandasParamHistoryManager(ParamHistoryManagerBase):
         >>> PandasParamHistoryManager(df).filter(param_grid)
         [{'a': 21, 'b': 22, 'c': 10}]
 
-        # Considers the parameter to be existent even if the candidate contains only a subset of the values.
-        # This assumes that no removal of the keys occurs along the development of the method.
+        This method considers the parameter to be existent even if the candidate contains only a subset of the values
+        (i.e., implicitly assumes that no removal of the keys occurs along the development of the method).
+
         >>> PandasParamHistoryManager(df).filter([{'a': 11, 'b': 12}])
         []
         """

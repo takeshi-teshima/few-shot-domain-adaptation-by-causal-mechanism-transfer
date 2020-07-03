@@ -14,4 +14,4 @@ install-dev:
 	pip install .
 
 open-docs:
-	xdg-open docs/_build/index.html
+	xdg-open docs/index.html

@@ -6,7 +6,7 @@ from causal_da.api_support.logging.model_logger import MLFlowMultiModelLogger
 
 # Type hinting
 from typing import Iterable, List, Dict, Optional, Union, Tuple
-from causal_da.api_support.assessment_base import AugAssessmentBase, StandardAssessmentBase                         
+from causal_da.api_support.assessment_base import AugAssessmentBase, StandardAssessmentBase
 
 
 class AugmentingMultiAssessmentEvaluator(AugmenterEvaluatorBase):

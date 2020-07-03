@@ -79,7 +79,7 @@ class CausalMechanismTransfer:
         ica_intermediate_evaluators.extend(augmenter_evaluators)
         ica_final_evaluators.extend(augmenter_final_evaluators)
 
-        # Fit outlier detector
+        # Fit novelty detector
         self.augmenter._fit_novelty_detector(src_data)
         return self.trainable_invertible_ica.train_and_record(
             ica_data, ica_run_logger, ica_intermediate_evaluators,
