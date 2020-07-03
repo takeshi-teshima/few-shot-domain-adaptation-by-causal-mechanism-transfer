@@ -4,13 +4,19 @@ $ pip install sphinx
 $ pip install sphinx_rtd_theme
 ```
 
-## Generate docs
-The following commands are run by the Makefile in the root directory of this package.
-
-```bash
-$ sphinx-apidoc -f -o ./docs .
-$ sphinx-build -b html ./docs ./docs/_build
-```
+## Develop the docs
+1. Go to the root directory and run:
+  ```bash
+  $ make documentation
+  ```
+  OR
+  ```bash
+  $ make
+  ```
+2. Then run
+  ```bash
+  $ make open-docs
+  ```
 
 ## Extensions
 * Autodoc

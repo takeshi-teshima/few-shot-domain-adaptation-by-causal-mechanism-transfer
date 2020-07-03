@@ -349,7 +349,9 @@ which depend on the Euclidean distances among the input points
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The timer class. It can be used as a decorator by <code class="docutils literal notranslate"><span class="pre">set()</span></code>.</p>
 <p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@Timer</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[Timer] The method took:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>            <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>                <span class="k">return</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@Timer</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[Timer] The method took:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 <dl class="py method">

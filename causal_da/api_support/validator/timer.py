@@ -44,9 +44,9 @@ class Timer:
     """The timer class. It can be used as a decorator by ``set()``.
 
     Example:
-        >>> @Timer.set(lambda t: print('[Timer] The method took:', t.time))\
-            def evaluate(a: int):\
-                return a ** 2
+        >>> @Timer.set(lambda t: print('[Timer] The method took:', t.time))
+        ... def evaluate(a: int):
+        ...     return a ** 2
     """
     def __enter__(self):
         """Start the timer."""
