@@ -43,7 +43,7 @@ conda-build==3.15.1
 configparser==4.0.2
 constantly==15.1.0
 contextlib2==0.5.5
-cryptography==2.3.1
+cryptography==3.2
 cvxopt==1.2.3
 cvxpy==1.0.25
 cycler==0.10.0
