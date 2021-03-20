@@ -102,7 +102,7 @@ itsdangerous==0.24
 jdcal==1.4
 jedi==0.14.1
 jeepney==0.3.1
-Jinja2==2.10
+Jinja2==2.11.3
 jmespath==0.9.4
 joblib==0.13.2
 json-rpc==1.12.1
