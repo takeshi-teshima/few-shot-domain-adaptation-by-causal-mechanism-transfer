@@ -225,7 +225,7 @@ QtPy==1.5.0
 querystring-parser==1.2.4
 requests==2.19.1
 rope==0.11.0
-rsa==3.4.2
+rsa==4.1
 ruamel-yaml==0.15.46
 s3transfer==0.2.1
 sacred==0.8.1
