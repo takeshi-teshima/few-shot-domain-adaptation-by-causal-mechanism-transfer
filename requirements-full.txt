@@ -217,7 +217,7 @@ python-language-server==0.28.3
 pytorch-ignite==0.3.0
 pytz==2018.5
 PyWavelets==1.0.0
-PyYAML==3.13
+PyYAML==5.4
 pyzmq==17.1.2
 QtAwesome==0.4.4
 qtconsole==4.4.1
