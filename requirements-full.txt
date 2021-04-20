@@ -182,7 +182,7 @@ protobuf==3.9.1
 psutil==5.4.7
 ptyprocess==0.6.0
 pudb==2019.1
-py==1.8.1
+py==1.10.0
 py-cpuinfo==5.0.0
 pyaml==19.4.1
 pyasn1==0.4.4
