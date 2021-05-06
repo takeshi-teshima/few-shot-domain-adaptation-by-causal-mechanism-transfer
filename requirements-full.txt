@@ -67,7 +67,7 @@ et-xmlfile==1.0.1
 fastcache==1.0.2
 filelock==3.0.8
 Flask==1.0.2
-Flask-Cors==3.0.6
+Flask-Cors==3.0.9
 -e git+https://github.com/VLL-HD/FrEIA.git@e74b5ec7a10c4f668742de7d639deadfb954ee47#egg=FrEIA
 future==0.17.1
 future-fstrings==1.0.0
