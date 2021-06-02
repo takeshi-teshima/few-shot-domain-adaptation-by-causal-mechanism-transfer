@@ -280,7 +280,7 @@ Twisted==18.7.0
 typing==3.7.4.1
 typing-extensions==3.7.4.2
 unicodecsv==0.14.1
-urllib3==1.23
+urllib3==1.26.5
 urwid==2.0.1
 virtualenv==16.7.5
 virtualenv-clone==0.5.3
