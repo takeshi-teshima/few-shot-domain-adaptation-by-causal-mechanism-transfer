@@ -170,7 +170,7 @@ pep8==1.7.1
 pexpect==4.6.0
 pickleshare==0.7.4
 Pillow==5.2.0
-pipenv==2018.11.26
+pipenv==2022.1.8
 pkginfo==1.4.2
 pluggy==0.13.1
 ply==3.11
