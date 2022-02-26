@@ -130,7 +130,7 @@ mccabe==0.6.1
 mistune==0.8.3
 mkl-fft==1.0.4
 mkl-random==1.0.1
-mlflow==1.2.0
+mlflow==1.23.1
 more-itertools==8.2.0
 mpmath==1.0.0
 msgpack==0.5.6
