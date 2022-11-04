@@ -275,7 +275,7 @@ torchvision==0.4.0
 tornado==5.1
 tqdm==4.43.0
 traitlets==4.3.2
-Twisted==18.7.0
+Twisted==22.10.0
 typing==3.7.4.1
 typing-extensions==3.7.4.2
 unicodecsv==0.14.1
